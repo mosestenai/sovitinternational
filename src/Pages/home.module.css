@@ -1,7 +1,330 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap');
+
+:root {
+    /* --primarycolor: #900f20; */
+    --primarycolor: #000;
+    --white: #ffffff;
+    --black: #000;
+}
+
+/* body { background-color: var(--blue); } */
+
 .homebody {
     font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     overflow-x: hidden;
 }
+
+.viewworkbutton {
+    background-color: var(--primarycolor);
+    color: var(--white);
+    width: 200px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 20px;
+   
+    border: none;
+}
+
+.containerwithshadowflex {
+    box-shadow: 1px 2px 6px #c7c6c6;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+}
+
+.containerwithshadowwithoutflex {
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.qualitydiv {
+    box-shadow: 1px 2px 6px #c7c6c6;
+    padding: 10px 30px;
+    margin: 0% 1%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    width: 20%;
+}
+
+.containerwithshadow {
+    box-shadow: 1px 2px 6px #c7c6c6;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+
+}
+
+.midicon {
+    background-color: var(--primarycolor);
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qualityname {
+    font-size: 20px;
+   
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.wrapyears {
+    display: flex;
+}
+
+.wrapyearnumber {
+    background-color: var(--primarycolor);
+    color: var(--white);
+    font-weight: 800;
+   
+    font-size: 45px;
+    height: 80px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapyearplus {
+    color: var(--primarycolor);
+    height: 80px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    font-size: 45px;
+    align-items: center;
+}
+
+.yearsname {
+    color: var(--primarycolor);
+    font-weight: 800;
+   
+    font-size: 23px;
+}
+
+.homeaboutyear {
+    width: 20%;
+    margin: 0% 1%;
+
+}
+
+.homeabouttextdiv {
+    width: 37%;
+    margin: 0% 1%;
+}
+
+.homeabouttext {
+    font-size: 20px;
+   
+}
+
+.homeabouttextcompanyname {
+    font-size: 30px;
+    font-weight: 900;
+   
+}
+
+.homeabouttextcompanydesc {
+    font-size: 16px;
+   
+}
+
+.whatwedowrap {
+    height: 180px;
+    width: 18%;
+    margin: 0% 1%;
+}
+
+.whatwedoimage {
+    height: 80%;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.whatwedotext {
+    font-size: 15px;
+    font-weight: 900;
+    margin-top: 5px;
+   
+}
+
+.currentworkimage {
+    height: 200px;
+    width: 48%;
+    margin: 1% 1%;
+    border-radius: 15px;
+}
+
+.middivshadownoflex {
+    box-shadow: 1px 2px 6px #c7c6c6;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 70%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.previousprojectdesc {
+    font-size: 16px;
+   
+}
+
+.projectprevdiv {
+    width: 30%;
+    margin: 1%;
+}
+
+.projectprevdivimage {
+    width: 68%;
+    margin: 1%;
+}
+
+.fleximage {
+    height: 200px;
+}
+
+.counterdivwrap {
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    display: flex;
+}
+
+.counterimagewrap {
+    width: 40%;
+}
+
+.counterimage {
+    margin-top: 2%;
+}
+
+.wrapcounterwhole {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapcounter {
+    display: flex;
+    width: 95%;
+    margin: auto;
+}
+
+.projectscounter {
+    display: flex;
+    width: 20%;
+    position: relative;
+}
+
+.projectscounterfirst {
+    background-color: silver;
+    height: 80px;
+    width: 60%;
+}
+.employeescounterfirst {
+    background-color: rgb(201, 206, 252);
+    height: 80px;
+    width: 60%;
+}
+.awardscounterfirst {
+    background-color: silver;
+    height: 80px;
+    width: 60%;
+}
+.clientscounterfirst {
+    background-color: rgb(204, 146, 146);
+    height: 80px;
+    width: 60%;
+}
+
+.projectscountersecond {
+    background-color: white;
+    height: 80px;
+    width: 60%;
+}
+
+.projectscountertext {
+    position: absolute;
+    align-self: center;
+    padding: 0px 10px;
+}
+
+.projectscountertextnumber {
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.projectscountertextname {
+    font-weight: 800;
+    font-size: 20px;
+}
+.testimonialdiv{
+    box-shadow: 1px 2px 6px #c7c6c6;
+}
+.testimonialchild{
+    height: 200px;
+}
+.testimonialreview{
+    font-size: 16px;
+    text-align: center;
+   
+}
+.testimonialname{
+    font-size: 16px;
+    font-weight: 800;
+    margin-top: 10px;
+   
+}
+.myswiper{
+    width: 90%;
+    margin: auto;
+}
+.partnerimage{
+    height: 80px;
+   
+}
+.ourpartnersdiv{
+    margin-top: 50px;
+}
+.partnerdivwrap{
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
 
 .imagebuttondescription {
     width: 80%;
@@ -12,7 +335,7 @@
     cursor: pointer;
     justify-content: center;
     align-items: center;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
     font-weight: 500;
     font-size: 25px;
     background-image: linear-gradient(to top, rgba(126, 118, 118, 0), rgb(17, 16, 16)), linear-gradient(to bottom, rgba(214, 209, 209, 0), rgb(77, 73, 73));
@@ -92,12 +415,13 @@
 }
 
 .firstdiv {
-    background-image: url("./../assets/back1.jpg");
+    /* background-image: url("./../assets/home/imageonedesk.jpg"); */
+    background-color: white;
     background-repeat: no-repeat;
 }
 
 .firstdivhow {
-    background-image: url("./../assets/How It Works/A.jpg");
+    background-image: url("./../assets/home/imageone.jpg");
     background-repeat: no-repeat;
     height: 600px;
     background-size: cover;
@@ -180,7 +504,7 @@
     font-weight: 500;
     font-size: 80px;
     line-height: 72px;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
 }
 
 .howitworkswrap {
@@ -194,16 +518,16 @@
 }
 
 .imageslide1 {
-    background-image: url("./../assets/slide1.png");
+    background-image: url("./../assets/home/imageone.jpg");
     width: 300px;
 }
 
 .imageslide2 {
-    background-image: url("./../assets/slider2.png");
+    background-image: url("./../assets/home/imageone.jpg");
 }
 
 .imageslide3 {
-    background-image: url("./../assets/slider3.png");
+    background-image: url("./../assets/home/imageone.jpg");
 }
 
 .bounce {
@@ -213,7 +537,7 @@
     border-radius: 50%;
     border: 1px solid white;
     background-color: silver;
-    margin-top: 650px;
+    margin-top: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -274,7 +598,7 @@
     font-family: 'Muli';
     z-index: 6;
     width: 100%;
-    background-image: linear-gradient(to top, rgba(214, 209, 209, 0), rgb(77, 73, 73));
+    background-image: linear-gradient(to top, rgba(221, 196, 196, 0), rgb(44, 41, 41));
     font-size: 13px;
     padding: 30px 5px;
     font-weight: 400;
@@ -330,7 +654,15 @@
     display: inline-block;
     cursor: pointer;
     position: relative;
-    color: white;
+    color: var(--primarycolor);
+    margin: 10px;
+}
+
+.hoverunderlineanimationup {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    color: var(--white);
     margin: 10px;
 }
 
@@ -354,7 +686,7 @@
 
 .headerimageparent {
     width: 27%;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
     font-size: 25px;
     font-weight: 100;
     color: white;
@@ -430,7 +762,7 @@
     position: absolute;
     right: 5%;
     top: 100px;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
 }
 
 .nomoretext2 {
@@ -440,7 +772,7 @@
     position: absolute;
     right: 5%;
     top: 200px;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
 }
 
 .nomoretextbelow {
@@ -450,7 +782,7 @@
     position: absolute;
     right: 5%;
     top: 300px;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
 }
 
 .nomoretextbelow2 {
@@ -460,7 +792,7 @@
     position: absolute;
     right: 5%;
     top: 350px;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
 }
 
 .applogosparent {
@@ -504,7 +836,7 @@
 
 .homephone {
     padding-top: 150px;
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 .homephoneslider {
@@ -524,7 +856,7 @@ h1 {
 
 .iplugdescriptionleft {
     text-align: left;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
     font-weight: 500;
     width: 30%;
     font-size: 23px;
@@ -536,7 +868,7 @@ h1 {
 .iplugdescriptionleftout {
     color: black;
     text-align: left;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
     font-weight: 500;
     font-size: 23px;
     width: 30%;
@@ -637,7 +969,7 @@ h1 {
 }
 
 .bottomhomediv {
-    background-image: url("./../assets/bottomback.jpg");
+    background-image: url("./../assets/home/imageone.jpg");
     background-repeat: no-repeat;
 }
 
@@ -687,7 +1019,7 @@ h1 {
     background-size: cover;
     height: 100%;
     animation: buttomimagebottomtotop 3s ease;
-    background-image: url("../assets/rate.jpg");
+    background-image: url("./../assets/home/imageone.jpg");
 }
 
 @keyframes buttomimagebottomtotop {
@@ -726,7 +1058,7 @@ h1 {
 }
 
 .getappdivtext {
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
     font-weight: 500;
     margin-top: 50px;
     font-size: 45px;
@@ -801,7 +1133,7 @@ h1 {
 }
 
 .footercontents {
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
     font-weight: 400px;
     font-size: 20px;
 }
@@ -824,14 +1156,14 @@ h1 {
 }
 
 .footercontentonemail {
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
     font-weight: 700;
     color: white;
     font-size: 14px;
 }
 
 .footerreserved {
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
     font-weight: 300;
     color: white;
     font-size: 12px;
@@ -839,7 +1171,7 @@ h1 {
 
 .footerreservedbuttons {
     background-color: white;
-    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+   
     font-weight: 300;
     padding: 5px 10px;
     cursor: pointer;
@@ -1041,7 +1373,7 @@ h1 {
         width: 40%;
         margin: auto;
         top: 130px;
-        font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+       
     }
 
     .nomoretext2 {
@@ -1053,7 +1385,7 @@ h1 {
         width: 70%;
         margin: auto;
         top: 140px;
-        font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+       
     }
 
     .homephone {
@@ -1077,7 +1409,7 @@ h1 {
         width: 80%;
         margin: auto;
         top: 150px;
-        font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+       
     }
 
     .nomoretextbelow2 {
@@ -1089,7 +1421,7 @@ h1 {
         width: 40%;
         margin: auto;
         top: 155px;
-        font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+       
     }
 
     .applogosparent {
@@ -1215,7 +1547,7 @@ h1 {
 
     .iplugdescriptionleft {
         text-align: left;
-        font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+       
         font-weight: 500;
         width: 90%;
         font-size: 20px;
@@ -1225,7 +1557,7 @@ h1 {
 
     .iplugdescriptionleftout {
         text-align: left;
-        font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+       
         font-weight: 500;
         font-size: 20px;
         width: 90%;
@@ -1301,7 +1633,7 @@ h1 {
     }
 
     .getappdivtext {
-        font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+       
         font-weight: 500;
         margin-top: 50px;
         font-size: 30px;
@@ -1336,7 +1668,7 @@ h1 {
     }
 
     .footerreserved {
-        font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+       
         font-weight: 300;
         color: white;
         width: 80%;
@@ -1351,11 +1683,11 @@ h1 {
         font-weight: 500;
         font-size: 25px;
         line-height: 25px;
-        font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+       
     }
 
     .firstdivhow {
-        background-image: url("./../assets/How It Works/A.jpg");
+        background-image: url("./../assets/home/imageone.jpg");
         background-repeat: no-repeat;
         height: 300px;
         width: 100%;

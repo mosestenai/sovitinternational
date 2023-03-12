@@ -1,16 +1,25 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, NavigationType, useLocation } from "react-router-dom";
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
+import CountUp from 'react-countup';
 import { useScrollDirection } from 'react-use-scroll-direction'
 import styles from './home.module.css';
 import Header from "./header";
-import { FaAngleDown, FaArrowCircleDown, FaBeer, FaFacebook, FaInstagramSquare, FaLinkedinIn, FaWhatsapp, FaYoutubeSquare } from 'react-icons/fa';
-import { ReactComponent as Iphonelogo } from './../assets/applogo.svg';
-import { ReactComponent as Googlelogo } from './../assets/googlelogo.svg';
+import { FaAngleDown, FaArrowCircleDown, FaBeer, FaFacebook, FaInstagramSquare, FaLinkedinIn, FaPlus, FaWhatsapp, FaYoutubeSquare } from 'react-icons/fa';
 import { Slide, Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import useOnScreen from "./detectonview";
+import { Backdrop, Button, Container } from "@mui/material";
+import { ArrowForward, ArrowRight, Diversity1Outlined, HealthAndSafetyOutlined, MiscellaneousServices, SettingsAccessibility, WorkspacePremiumOutlined } from "@mui/icons-material";
+import Zoomicon from "../Components/zoomicon";
+import { isMobile, isTablet, isDesktop } from 'react-device-detect';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { partnersarray, testimonialsarray } from "../Utils/testimonials";
+import { primarycolor } from "../Utils/colors";
 
 
 const Homepage = () => {
@@ -74,29 +83,6 @@ const Homepage = () => {
     }
 
 
-    const fadeImages = [
-        {
-            url: './../assets/phone1.png',
-            caption: 'Slide 1'
-        },
-        {
-            url: './../assets/icon.png',
-            caption: 'Slide 2'
-        },
-        {
-            url: './../assets/phone1.png',
-            caption: 'Slide 3'
-        },
-    ];
-
-
-    const images = [
-        'https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
-        'https://homepages.cae.wisc.edu/~ece533/images/arctichare.png',
-        'https://homepages.cae.wisc.edu/~ece533/images/baboon.png',
-        'https://homepages.cae.wisc.edu/~ece533/images/barbara.png',
-    ];
-
     //scroll page to view all restaurants
     const viewmiddle = () => {
         document.getElementById("middle").scrollIntoView({ behavior: 'smooth' });
@@ -113,86 +99,392 @@ const Homepage = () => {
                 setscrollup(false)
             }
         }}>
-            <Backdrop
-                sx={{ color: 'white', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                open={loading}
-            >
-                <div className={styles.backdrop}>
-                    <img src={require("./../assets/home.png")} />
-                </div>
-            </Backdrop>
+            {loading && <Zoomicon />}
             <div className={styles.homebody}>
                 <div className={styles.firstdiv}>
                     <Header scrolldown={isScrollingDown} scrollPosition={scrollPosition} />
-                    <div className={styles.nomoretext}>NO MORE</div>
-                    <div className={styles.nomoretext2}>WITHOUT BATTERY</div>
-                    <div className={styles.nomoretextbelow}>Get the app and find the nearest</div>
-                    <div className={styles.nomoretextbelow2}>Iplug Powerbank</div>
-                    <div className={styles.applogosparent}><Iphonelogo className={styles.iphonelogo} /><Googlelogo className={styles.googlelogo} /></div>
-
-                    <div className={styles.homephoneslider}>
-                        {showimageone && <img src={require("./../assets/slider2.png")} />}
-                        {showimagetwo && <img src={require("./../assets/slider2.png")} />}
-                        {showimagethree && <img src={require("./../assets/slider3.png")} />}
+                    <div className={styles.nomoretext}>SOVIT</div>
+                    <div className={styles.nomoretext2}>FIRST CHOICE</div>
+                    <div className={styles.nomoretextbelow}>Contruction partner</div>
+                    <div className={styles.nomoretextbelow2}>
+                        <button className={styles.viewworkbutton}>View our work</button>
                     </div>
+
                     <div style={{ width: "100%", justifyContent: "center", alignItems: "center", display: "flex", position: "absolute" }}>
                         <div className={styles.bounce} onClick={() => viewmiddle()}>
                             <FaAngleDown color="white" size={30} />
                         </div>
                     </div>
                     <div className={styles.middlehomediv}>
-                        <img className={styles.homephone} src={require("./../assets/phone.png")} />
+                        <img className={styles.homephone} src={require("./../assets/home/house2.png")} />
                     </div>
                 </div>
                 <div className={styles.image}></div>
                 <div ref={ref}>
-                    {isVisible && <img src={require("./../assets/Landing Page/C.png")} className={scrollup && !isVisible4 ? styles.rightfixedimageout : styles.rightfixedimage} />}
+                    {isVisible && <img src={require("./../assets/home/image5.jpg")} className={scrollup && !isVisible4 ? styles.rightfixedimageout : styles.rightfixedimage} />}
                 </div>
                 <div ref={ref4}>
-                    {isVisible4 && <img src={require("./../assets/final/8.jpg")} className={scrollup && !isVisible3 ? styles.rightfixedimage2out : styles.rightfixedimage2} />}
+                    {isVisible4 && <img src={require("./../assets/home/imageone.jpg")} className={scrollup && !isVisible3 ? styles.rightfixedimage2out : styles.rightfixedimage2} />}
                 </div>
                 <div className={styles.middledivwrap}>
                     <div ref={ref3}>
                         {isVisible3 && <div className={scrollup ? styles.iplugdescriptionleftout : styles.iplugdescriptionleft}>
-                            Iplug is the first Powerbank Rental<br />
-                            Service that combines high <br />
-                            technology and design in an <br />
-                            increasingly dynamic and <br />
-                            demanding world.<br /><br />
-                            Iplug is not a simple Powerbank<br />
-                            Sharing Service, but the only one<br />
-                            to have the innovative Fast Charge <br />
-                            technology that allows you to<br />
-                            recharge any type of device in a <br />
-                            few minutes with total freedom of<br />
-                            movement.<br /><br />
+                            Sovit International Limited was <br />
+                            formed in the year 2015 with the<br />
+                            focus to intelligent quality <br />
+                            engineering solutions in response <br />
+                            to the dynamic needs in the <br />
+                            Engineering and technology <br />
+                            industry. At Sovit we seek to<br />
+                            provide innovative professional<br />
+                            touch in all our services.<br /><br />
                             <div className={styles.discoverbutton} >
-                                DISCOVER HOW IT WORKS
+                                DISCOVER MORE ABOUT US
                             </div>
                         </div>}
+                    </div>
+                </div>
+
+                <div className={styles.containerwithshadowflex} >
+                    <div className={styles.qualitydiv} >
+                        <div className={styles.midicon}>
+                            <MiscellaneousServices />
+                        </div>
+                        <div className={styles.qualityname}>SERVICES</div>
+                        <div>
+                            Offering a full contract<br />
+                            construction service in<br />
+                            industrial and commercial<br />
+                            sectors<br /><br /><br />
+                        </div>
+                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                            Read more
+                        </Button>
+                    </div>
+                    <div className={styles.qualitydiv} >
+                        <div className={styles.midicon}>
+                            <HealthAndSafetyOutlined />
+                        </div>
+                        <div className={styles.qualityname}>HEALTH & SAFETY</div>
+                        <div>
+                            Keeping all those <br />
+                            involved  and affected<br />
+                            by our work safe is at <br />
+                            core to Sovit's values<br /><br /><br /><br />
+                        </div>
+                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                            Read more
+                        </Button>
+                    </div>
+                    <div className={styles.qualitydiv} >
+                        <div className={styles.midicon}>
+                            <Diversity1Outlined />
+                        </div>
+                        <div className={styles.qualityname}>PEOPLE</div>
+                        <div>
+                            We are a tight team <br />
+                            of effective and <br />
+                            motivated  civil <br />
+                            professionals.We all <br />
+                            love to build, we are engineers<br /><br />
+                        </div>
+                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                            Read more
+                        </Button>
+                    </div>
+                    <div className={styles.qualitydiv} >
+                        <div className={styles.midicon}>
+                            <WorkspacePremiumOutlined />
+                        </div>
+                        <div className={styles.qualityname}>STANDARDS</div>
+                        <div>
+                            Delivering a quality <br />
+                            product is important to <br />
+                            us, and we attend to <br />
+                            maintenance items long <br />
+                            after we are obliged to.<br /><br />
+                        </div>
+                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                            Read more
+                        </Button>
+                    </div>
+                </div>
+                <div className={styles.containerwithshadowflex} >
+                    <div className={styles.homeaboutyear}>
+                        <div className={styles.wrapyears}>
+                            <div className={styles.wrapyearnumber}>
+                                <CountUp start={0} end={20} enableScrollSpy={true} delay={0} duration={5}>
+                                    {({ countUpRef }) => (
+                                        <span ref={countUpRef} />
+                                    )}
+                                </CountUp>
+                            </div>
+                            <div className={styles.wrapyearplus}>
+                                <FaPlus />
+                            </div>
+                        </div>
+                        <div className={styles.yearsname}>
+                            YEARS<br />
+                            EXPERIENCE
+                        </div>
+                    </div>
+                    <div className={styles.homeabouttextdiv}>
+                        <div className={styles.homeabouttext}>ABOUT US</div>
+                        <div className={styles.homeabouttextcompanyname}>
+                            SOVIT <br /> INTERNATIONAL
+                        </div>
+                        <div className={styles.homeabouttextcompanydesc}>
+                            We are constructors not managers.<br />
+                            Sovit international is dedicated to safely delivering<br />
+                            industrial and commercial construction projects.<br /><br />
+                            We've been constructing for 20 years and we are<br />
+                            committed to improving ourselves and the wider <br />
+                            industry we work within.<br /><br />
+                        </div >
+                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                            Read more
+                        </Button>
+                    </div>
+                    <div className={styles.homeabouttextdiv}>
+                        <img src={require("./../assets/home/image12.jpg")} style={{ height: "100%", width: "100%" }} />
+                    </div>
+                </div>
+                <br />  <br />  <br />
+                <div className={styles.containerwithshadowwithoutflex}>
+                    <div className={styles.homeabouttext}>SERVICES</div>
+                    <div className={styles.homeabouttextcompanyname}>
+                        WHAT WE DO
+                    </div>
+                    <div className={styles.containerwithshadowflex} >
+                        <div className={styles.whatwedowrap}>
+                            <img src={require("./../assets/home/water.png")} className={styles.whatwedoimage} />
+                            <div className={styles.whatwedotext}>Water Solutions  </div>
+                        </div>
+                        <div className={styles.whatwedowrap}>
+                            <img src={require("./../assets/home/energy.jpg")} className={styles.whatwedoimage} />
+                            <div className={styles.whatwedotext}>Energy Solutions  </div>
+                        </div>
+                        <div className={styles.whatwedowrap}>
+                            <img src={require("./../assets/home/telecom.jpg")} className={styles.whatwedoimage} />
+                            <div className={styles.whatwedotext}>Telecommunication Industry  </div>
+                        </div>
+                        <div className={styles.whatwedowrap}>
+                            <img src={require("./../assets/home/road.jpg")} className={styles.whatwedoimage} />
+                            <div className={styles.whatwedotext}>Built environment solutions  </div>
+                        </div>
+                        <div className={styles.whatwedowrap}>
+                            <img src={require("./../assets/home/consult.jpg")} className={styles.whatwedoimage} />
+                            <div className={styles.whatwedotext}>Consultancy and Supervision   </div>
+                        </div>
+                    </div>
+                </div>
+                <br />  <br />
+                <div className={styles.containerwithshadowwithoutflex}>
+                    <text align="middle"> <div className={styles.homeabouttext}>PROJECTS</div></text>
+                    <text align="middle">
+                        <div className={styles.homeabouttextcompanyname}>
+                            CURRENT WORK
+                        </div></text>
+                    <div className={styles.middivshadownoflex} >
+                        <div style={{ display: "flex" }}>
+                            <img src={require("./../assets/home/image1.jpg")} className={styles.currentworkimage} />
+                            <img src={require("./../assets/home/image2.jpg")} className={styles.currentworkimage} />
+                        </div>
+                        <div style={{ display: "flex" }}>
+                            <img src={require("./../assets/home/consult.jpg")} className={styles.currentworkimage} />
+                            <img src={require("./../assets/home/image4.jpg")} className={styles.currentworkimage} />
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.counterdivwrap}>
+                    <div className={styles.projectprevdiv}>
+                        <div className={styles.homeabouttext}>PROJECTS</div>
+                        <div className={styles.homeabouttextcompanyname}>
+                            PREVIOUS <br />
+                            WORK
+                        </div>
+                        <div className={styles.previousprojectdesc}>
+                            From early Contractor involvement to current <br />
+                            market advice on constructability, safety, <br />
+                            budgets and programming - we have the < br />
+                            skills, knowledge and experience
+                        </div ><br />
+                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                            VIEW ALL PROJECTS
+                        </Button>
+                    </div>
+                    <div className={styles.projectprevdivimage}>
+                        <img title="Road works" src={require("./../assets/home/test1.jpg")} className={styles.fleximage} />
+                        <img title="Building construction" src={require("./../assets/home/test2.jpg")} className={styles.fleximage} />
+                        <img title="Dam construction" src={require("./../assets/home/test3.jpg")} className={styles.fleximage} />
+                        <img title="Dam construction" src={require("./../assets/home/test4.jpg")} className={styles.fleximage} />
+                        <img title="Borehole drilling" src={require("./../assets/home/test5.jpg")} className={styles.fleximage} />
+                    </div>
+                </div>
+                <div className={styles.counterdivwrap}>
+                    <div className={styles.counterimagewrap} >
+                        <img src={require("./../assets/home/counter.png")} className={styles.counterimage} />
+                    </div>
+                    <div className={styles.wrapcounterwhole}>
+                        <div className={styles.wrapcounter}>
+                            <div className={styles.projectscounter}>
+                                <div className={styles.projectscounterfirst} />
+                                <div className={styles.projectscountersecond} />
+                                <div className={styles.projectscountertext}>
+                                    <div className={styles.projectscountertextnumber}>
+                                        <CountUp start={0} end={1000} delay={0} enableScrollSpy={true} duration={10}>
+                                            {({ countUpRef }) => (
+                                                <span ref={countUpRef} />
+                                            )}
+                                        </CountUp>
+                                        +
+                                    </div>
+                                    <div className={styles.projectscountertextname}>
+                                        PROJECTS
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.projectscounter}>
+                                <div className={styles.employeescounterfirst} />
+                                <div className={styles.projectscountersecond} />
+                                <div className={styles.projectscountertext}>
+                                    <div className={styles.projectscountertextnumber}>
+                                        <CountUp start={0} end={450} delay={0} enableScrollSpy={true} duration={8}>
+                                            {({ countUpRef }) => (
+                                                <span ref={countUpRef} />
+                                            )}
+                                        </CountUp>    +
+                                    </div>
+                                    <div className={styles.projectscountertextname}>
+                                        EMPLOYEES
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.projectscounter}>
+                                <div className={styles.awardscounterfirst} />
+                                <div className={styles.projectscountersecond} />
+                                <div className={styles.projectscountertext}>
+                                    <div className={styles.projectscountertextnumber}>
+                                        <CountUp start={0} end={25} delay={0} enableScrollSpy={true} duration={5}>
+                                            {({ countUpRef }) => (
+                                                <span ref={countUpRef} />
+                                            )}
+                                        </CountUp> +
+                                    </div>
+                                    <div className={styles.projectscountertextname}>
+                                        AWARDS
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.projectscounter}>
+                                <div className={styles.clientscounterfirst} />
+                                <div className={styles.projectscountersecond} />
+                                <div className={styles.projectscountertext}>
+                                    <div className={styles.projectscountertextnumber}>
+                                        <CountUp start={0} end={100} delay={0} enableScrollSpy={true} duration={10}>
+                                            {({ countUpRef }) => (
+                                                <span ref={countUpRef} />
+                                            )}
+                                        </CountUp> +
+                                    </div>
+                                    <div className={styles.projectscountertextname}>
+                                        CLIENTS
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.containerwithshadowwithoutflex}>
+                    <text align="middle"> <div className={styles.homeabouttext}>TESTIMONIALS</div></text>
+                    <text align="middle">
+                        <div className={styles.homeabouttextcompanyname}>
+                            CLIENT REVIEWS
+                        </div></text>
+                    <br /><br />
+                    <div className={styles.myswiper}>
+                        <Swiper
+                            slidesPerView={isMobile ? 1 : isTablet ? 2 : isDesktop && 3}
+                            spaceBetween={20}
+                            slidesPerGroup={3}
+                            loop={false}
+                            loopFillGroupWithBlank={true}
+                            pagination={{
+                                clickable: true,
+
+                            }}
+                            color={primarycolor}
+                            navigation={true}
+                            modules={[Pagination, Navigation]}
+                            style={{
+                                "--swiper-pagination-color": "#000",
+                                "--swiper-navigation-color": "#000",
+                                "--swiper-navigation-size": "20px"
+                            }}
+                        >
+                            {Array.isArray(testimonialsarray) && testimonialsarray.map((val, key) => {
+
+                                return (
+                                    <SwiperSlide key={key} className={styles.testimonialdiv}>
+                                        <div className={styles.testimonialchild}>
+                                            <div className={styles.testimonialreview}>{val.review}</div>
+                                            <text align="middle"><div className={styles.testimonialname}>{val.name}</div></text>
+                                        </div>
+                                    </SwiperSlide>
+                                )
+                            })
+
+                            }
+                        </Swiper>
+                    </div>
+                </div>
+                <div className={styles.ourpartnersdiv}>
+                    <div className={styles.myswiper}>
+                        <Swiper
+                            slidesPerView={isMobile ? 3 : isTablet ? 4 : isDesktop && 5}
+                            spaceBetween={20}
+                            slidesPerGroup={3}
+                            loop={false}
+                            loopFillGroupWithBlank={true}
+                            pagination={{
+                                clickable: true,
+
+                            }}
+                            color={primarycolor}
+                            navigation={false}
+                            modules={[Pagination, Navigation]}
+                            style={{
+                                "--swiper-pagination-color": "#000",
+                                "--swiper-navigation-color": "#000",
+                                "--swiper-navigation-size": "20px"
+                            }}
+                        >
+                            {Array.isArray(partnersarray) && partnersarray.map((val, key) => {
+                                return (
+                                    <SwiperSlide key={key} className={styles.partnerdivwrap}>
+                                        <img title={val.name} src={val.src} style={{backgroundColor:val.background && val.background,padding:val.background && 10}} className={styles.partnerimage} />
+                                    </SwiperSlide>
+                                )
+                            })
+                            }
+                        </Swiper>
                     </div>
                 </div>
                 <div className={styles.bottomhomediv} ref={ref2}>
                     <div className={styles.bottomdivimageswrap}  >
                         <div className={styles.wrapmaxresdefault2}>
-                            <img src={require("./../assets/Landing Page/slot2.jpg")} className={styles.maxresdefault2} />
+                            <img src={require("./../assets/home/imageone.jpg")} className={styles.maxresdefault2} />
                             <div className={styles.howitworks}>
                                 <div className={styles.imagebuttondescription}>HOW IT WORKS</div>
                                 <div className={styles.morebutton}>MORE</div>
                             </div>
                         </div>
                         <div className={styles.wrapmaxresdefault2}>
-                            <img src={require("./../assets/Landing Page/F.png")} className={styles.maxresdefault2} />
+                            <img src={require("./../assets/home/imageone.jpg")} className={styles.maxresdefault2} />
                             <div className={styles.howitworks}>
                                 <div className={styles.imagebuttondescription}>RATES</div>
                                 <div className={styles.morebutton}>MORE</div>
                             </div>
-                        </div>
-                    </div>
-                    <div className={styles.gettheappdiv} id="middle">
-                        <div className={styles.wrapappdiv}>
-                            <div className={styles.getappdivtext}>GET THE APP</div>
-                            <div className={styles.applogosparent2}><Iphonelogo className={styles.iphonelogo} /><Googlelogo className={styles.googlelogo} /></div>
                         </div>
                     </div>
                     <div className={styles.almostbottomdiv}>
@@ -219,17 +511,17 @@ const Homepage = () => {
                                     </div>
                                 </div>
                                 <div className={styles.footercontentone}>
-                                    <img src={require("../assets/blackicon.png")} />
+                                    <img src={require("./../assets/common/translogo.png")} />
                                 </div>
                                 <div className={styles.footercontentlast}>
                                     <div className={styles.footercontentonetext}>Contacts </div>
-                                    <div className={styles.footercontentonemail}>mail: info@theiplug.com</div>
+                                    <div className={styles.footercontentonemail}>mail: info@sovitinternational.co.ke</div>
                                 </div>
                             </div>
                             <br /> <br />
                             <hr color="white" />
                             <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                <div className={styles.footerreserved}>© 2023 Iplug s.r.l. P.IVA: 10645650960. All Rights Reserved.</div>
+                                <div className={styles.footerreserved}>© 2023 Sovit s.r.l. P.IVA: 10645650960. All Rights Reserved.</div>
                             </div>
                             <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
                                 <div className={styles.footerreservedbuttons}>Privacy Policy</div>

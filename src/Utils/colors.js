@@ -1,0 +1,1 @@
+export const primarycolor = "#900f20";
