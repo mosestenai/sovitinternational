@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 import { useScrollDirection } from 'react-use-scroll-direction'
 import styles from './home.module.css';
 import Header from "./header";
-import { FaAngleDown, FaArrowCircleDown, FaBeer, FaFacebook, FaInstagramSquare, FaLinkedinIn, FaPlus, FaWhatsapp, FaYoutubeSquare } from 'react-icons/fa';
+import { FaAngleDown, FaArrowCircleDown, FaBars, FaBeer, FaEnvelope, FaFacebook, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaPlus, FaTimes, FaWhatsapp, FaYoutubeSquare } from 'react-icons/fa';
 import { Slide, Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import useOnScreen from "./detectonview";
@@ -24,6 +24,11 @@ import { primarycolor } from "../Utils/colors";
 
 const Homepage = () => {
 
+    //header states
+    const [shownavbar, setshownavbar] = useState(false);
+    const location = useLocation();
+    const route = location.pathname;
+
     const [showmuddlecontents, setshowmuddlecontents] = useState(true);
     const ref = useRef()
     const ref2 = useRef()
@@ -34,23 +39,27 @@ const Homepage = () => {
     const isVisible3 = useOnScreen(ref3)
     const isVisible4 = useOnScreen(ref4)
     const isbottomvisible = useOnScreen(ref)
-    const [scrollup, setscrollup] = useState(false);
-    const [showimageone, setshowimageone] = useState(true);
-    const [showimagetwo, setshowimagetwo] = useState(false);
-    const [showimagethree, setshowimagethree] = useState(false);
+    const [scrollup, setscrollup] = useState(false);;
     const [loading, setloading] = useState(true);
+
+    const [currentpath, setcurrentpath] = useState('home');
 
     const { isScrollingDown } = useScrollDirection()
 
     const [scrollPosition, setScrollPosition] = useState(0);
+
+
     const handleScroll = () => {
         const position = window.pageYOffset;
         setScrollPosition(position);
     };
 
+
     setTimeout(() => {
         setloading(false)
     }, 5000);
+
+
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -60,36 +69,80 @@ const Homepage = () => {
         };
     }, []);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            changepic()
-        }, 5000);
-        return () => clearInterval(interval);
-    }, []);
+  
+    const Localheader = ({ scrolldown, scrollPosition }) => {
 
-    const changepic = () => {
-        if (showimageone) {
-            setshowimageone(!showimageone)
-            setshowimagetwo(!showimagetwo)
+        const gotocurrent = (path) => {
+            setcurrentpath(path)
+            navigatetopath(path)
         }
-        if (showimagetwo) {
-            setshowimagetwo(!showimagetwo)
-            setshowimagethree(!showimagethree)
-        }
-        if (showimagethree) {
-            setshowimagethree(!showimagethree)
-            setshowimageone(!showimageone)
-        }
+
+       console.log(scrollPosition)
+
+
+        return (
+            <div className={scrollPosition >= 5 ? styles.headerdivscrolldown : styles.headerdiv}>
+                <div className={styles.headerimageparent}>
+                    <img style={{
+                        height: 50,
+                    }} src={require('./../assets/common/wlogo.png')} />
+                </div>
+                <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("home")}>{currentpath === "home" ? <u>HOME</u> : "HOME"}</div>
+                <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("aboutus")}>{currentpath === "aboutus" ? <u>ABOUT</u> : "ABOUT"}</div>
+                <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("services")}>{currentpath === "services" ? <u>SERVICES</u> : "SERVICES"}</div>
+                <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("projects")}> {currentpath === "projects" ? <u>PROJECTS</u> : "PROJECTS"}</div>
+                <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("clients")}> {currentpath === "clients" ? <u>CLIENTS</u> : "CLIENTS"}</div>
+                <div className={styles.languagediv}>ENG</div>
+                <div className={scrollPosition >= 5 ? styles.getappbutton : styles.getappbuttondown}>CALL US</div>
+                <div className={shownavbar ? styles.navbarmovein : styles.navbar}>
+                    <div onClick={() => setshownavbar(!shownavbar)} style={{
+                        backgroundColor: shownavbar ? "#430f0f" : "black",
+                        height: 40,
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: 'center',
+                        width: "15%",
+                        cursor: "pointer"
+                    }}>
+                        {shownavbar ? <FaTimes color="silver" size={30} /> : <FaBars color={"silver"} size={30} />}
+                    </div>
+                    <div className={styles.navbarcontentmiddle} onClick={() => setshownavbar(!shownavbar)} />
+                    <div className={styles.navbarcontent}>
+                        <div onClick={() => gotocurrent("home")}>HOME</div>
+                        <div onClick={() => gotocurrent("aboutus")}>ABOUT</div>
+                        <div onClick={() => gotocurrent("services")}>SERVICES</div>
+                        <div onClick={() => gotocurrent("projects")}>PROJECTS</div>
+                        <div onClick={() => gotocurrent("clients")}>CLIENTS</div>
+                        <button>CALL US</button>
+                    </div>
+                </div>
+            </div>
+        )
     }
 
 
-    //scroll page to view all restaurants
-    const viewmiddle = () => {
-        document.getElementById("middle").scrollIntoView({ behavior: 'smooth' });
+
+
+
+    // setInterval(() => {
+    //     const userobject = sessionStorage?.getItem("locationmessage");
+    //     const object = JSON.parse(userobject);
+    //     if (object) {
+    //         if (object?.path) {
+    //             if(object.path !== currentpath){
+    //                 setcurrentpath(object.path)
+    //                 navigatetopath(object.path)
+    //             }
+    //         }
+    //     }
+    // }, 2000);
+
+
+
+    //scroll page to the specified path
+    const navigatetopath = (path) => {
+        document.getElementById(path).scrollIntoView({ behavior: 'smooth' });
     }
-
-
-
 
     return (
         <div onWheel={event => {
@@ -100,8 +153,9 @@ const Homepage = () => {
             }
         }}>
             {loading && <Zoomicon />}
-            <div className={styles.homebody}>
+            <div className={styles.homebody} id="home">
                 <div className={styles.firstdiv}>
+                    {/* <Localheader scrolldown={isScrollingDown} scrollPosition={scrollPosition} /> */}
                     <Header scrolldown={isScrollingDown} scrollPosition={scrollPosition} />
                     <div className={styles.nomoretext}>SOVIT</div>
                     <div className={styles.nomoretext2}>FIRST CHOICE</div>
@@ -111,12 +165,12 @@ const Homepage = () => {
                     </div>
 
                     <div style={{ width: "100%", justifyContent: "center", alignItems: "center", display: "flex", position: "absolute" }}>
-                        <div className={styles.bounce} onClick={() => viewmiddle()}>
+                        <div className={styles.bounce} onClick={() => navigatetopath("projects")}>
                             <FaAngleDown color="white" size={30} />
                         </div>
                     </div>
                     <div className={styles.middlehomediv}>
-                        <img className={styles.homephone} src={require("./../assets/home/house2.png")} />
+                        <img className={styles.homephone} src={require("./../assets/icons/const2.png")} />
                     </div>
                 </div>
                 <div className={styles.image}></div>
@@ -126,7 +180,7 @@ const Homepage = () => {
                 <div ref={ref4}>
                     {isVisible4 && <img src={require("./../assets/home/imageone.jpg")} className={scrollup && !isVisible3 ? styles.rightfixedimage2out : styles.rightfixedimage2} />}
                 </div>
-                <div className={styles.middledivwrap}>
+                <div className={styles.middledivwrap} id="aboutus">
                     <div ref={ref3}>
                         {isVisible3 && <div className={scrollup ? styles.iplugdescriptionleftout : styles.iplugdescriptionleft}>
                             Sovit International Limited was <br />
@@ -209,7 +263,7 @@ const Homepage = () => {
                         </Button>
                     </div>
                 </div>
-                <div className={styles.containerwithshadowflex} >
+                <div className={styles.containerwithshadowflex} id="services">
                     <div className={styles.homeaboutyear}>
                         <div className={styles.wrapyears}>
                             <div className={styles.wrapyearnumber}>
@@ -250,7 +304,7 @@ const Homepage = () => {
                     </div>
                 </div>
                 <br />  <br />  <br />
-                <div className={styles.containerwithshadowwithoutflex}>
+                <div className={styles.containerwithshadowwithoutflex} id="projects">
                     <div className={styles.homeabouttext}>SERVICES</div>
                     <div className={styles.homeabouttextcompanyname}>
                         WHAT WE DO
@@ -291,7 +345,7 @@ const Homepage = () => {
                             <img src={require("./../assets/home/image2.jpg")} className={styles.currentworkimage} />
                         </div>
                         <div style={{ display: "flex" }}>
-                            <img src={require("./../assets/home/consult.jpg")} className={styles.currentworkimage} />
+                            <img src={require("./../assets/home/fibre.jpg")} className={styles.currentworkimage} />
                             <img src={require("./../assets/home/image4.jpg")} className={styles.currentworkimage} />
                         </div>
                     </div>
@@ -321,7 +375,7 @@ const Homepage = () => {
                         <img title="Borehole drilling" src={require("./../assets/home/test5.jpg")} className={styles.fleximage} />
                     </div>
                 </div>
-                <div className={styles.counterdivwrap}>
+                <div className={styles.counterdivwrap} id="reviews">
                     <div className={styles.counterimagewrap} >
                         <img src={require("./../assets/home/counter.png")} className={styles.counterimage} />
                     </div>
@@ -395,7 +449,7 @@ const Homepage = () => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.containerwithshadowwithoutflex}>
+                <div className={styles.containerwithshadowwithoutflex} id="clients">
                     <text align="middle"> <div className={styles.homeabouttext}>TESTIMONIALS</div></text>
                     <text align="middle">
                         <div className={styles.homeabouttextcompanyname}>
@@ -438,7 +492,7 @@ const Homepage = () => {
                         </Swiper>
                     </div>
                 </div>
-                <div className={styles.ourpartnersdiv}>
+                <div className={styles.ourpartnersdiv} id="contactus">
                     <div className={styles.myswiper}>
                         <Swiper
                             slidesPerView={isMobile ? 3 : isTablet ? 4 : isDesktop && 5}
@@ -461,8 +515,10 @@ const Homepage = () => {
                         >
                             {Array.isArray(partnersarray) && partnersarray.map((val, key) => {
                                 return (
-                                    <SwiperSlide key={key} className={styles.partnerdivwrap}>
-                                        <img title={val.name} src={val.src} style={{backgroundColor:val.background && val.background,padding:val.background && 10}} className={styles.partnerimage} />
+                                    <SwiperSlide key={key} >
+                                        <div className={styles.partnerdivwrap}>
+                                            <img title={val.name} src={val.src} style={{ backgroundColor: val.background && val.background, padding: val.background && 10 }} className={styles.partnerimage} />
+                                        </div>
                                     </SwiperSlide>
                                 )
                             })
@@ -470,23 +526,78 @@ const Homepage = () => {
                         </Swiper>
                     </div>
                 </div>
+                <div className={styles.contactusdiv}>
+                    <img src={require("./../assets/icons/const3.png")} height={200} />
+                    <div className={styles.bottomabout}>
+                        <div style={{ display: "flex" }}>
+                            <img src={require("./../assets/common/ico.png")} height={40} />
+                            <div>
+                                <div className={styles.homeabouttext}>SOVIT</div>
+                                <div className={styles.homeabouttextcompanyname}>
+                                    INTERNATIONAL
+                                </div><br />
+                                <div className={styles.previousprojectdesc}>
+                                    Having successfully delivered more
+                                    than 1000 construction contracts for
+                                    fewer than 200 clients we're proud that
+                                    Sovit international is often the first
+                                    choice construction partner.
+                                </div ><br />
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.bottomabout}>
+                        <div className={styles.officelocation}>
+                            Nairobi
+                        </div>
+                        <br />
+                        <div>
+                            <FaMapMarkerAlt /> Tower one , jogoo road,<br /> Nairobi<br />
+                            <br />
+                            P.O BOX 123 NAIROBI<br />
+                        </div>
+                        <div style={{ display: "flex", marginTop: 5 }}>
+                            <FaEnvelope style={{ marginTop: 3, marginRight: 5 }} /> support@sovitinternational.co.ke
+                        </div>
+                        <div style={{ display: "flex", marginTop: 5 }}>
+                            <FaPhoneAlt style={{ marginTop: 3, marginRight: 5 }} /> +254 717 254 347
+                        </div>
+                    </div>
+                    <div className={styles.bottomabout}>
+                        <div className={styles.officelocation}>
+                            Nakuru
+                        </div>
+                        <br />
+                        <div>
+                            <FaMapMarkerAlt /> Baraka plaza , Kenyatta Avenue,<br /> Nakuru<br />
+                            <br />
+                            P.O BOX 343 NAKURU<br />
+                        </div>
+                        <div style={{ display: "flex", marginTop: 5 }}>
+                            <FaEnvelope style={{ marginTop: 3, marginRight: 5 }} /> support@sovitinternational.co.ke
+                        </div>
+                        <div style={{ display: "flex", marginTop: 5 }}>
+                            <FaPhoneAlt style={{ marginTop: 3, marginRight: 5 }} /> +254 717 254 347
+                        </div>
+                    </div>
+                </div>
                 <div className={styles.bottomhomediv} ref={ref2}>
-                    <div className={styles.bottomdivimageswrap}  >
+                    {/* <div className={styles.bottomdivimageswrap}  >
                         <div className={styles.wrapmaxresdefault2}>
-                            <img src={require("./../assets/home/imageone.jpg")} className={styles.maxresdefault2} />
+                            <img src={require("./../assets/home/image12.jpg")} className={styles.maxresdefault2} />
                             <div className={styles.howitworks}>
                                 <div className={styles.imagebuttondescription}>HOW IT WORKS</div>
                                 <div className={styles.morebutton}>MORE</div>
                             </div>
                         </div>
                         <div className={styles.wrapmaxresdefault2}>
-                            <img src={require("./../assets/home/imageone.jpg")} className={styles.maxresdefault2} />
+                            <img src={require("./../assets/home/image13.jpg")} className={styles.maxresdefault2} />
                             <div className={styles.howitworks}>
                                 <div className={styles.imagebuttondescription}>RATES</div>
                                 <div className={styles.morebutton}>MORE</div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className={styles.almostbottomdiv}>
                         <div className={scrollup ? styles.bottomdivfooterout : styles.bottomdivfooter} ref={bottomref}>
                             <div className={styles.wrapcontents} >
@@ -511,7 +622,7 @@ const Homepage = () => {
                                     </div>
                                 </div>
                                 <div className={styles.footercontentone}>
-                                    <img src={require("./../assets/common/translogo.png")} />
+                                    <img src={require("./../assets/common/wlogo.png")} height={60} />
                                 </div>
                                 <div className={styles.footercontentlast}>
                                     <div className={styles.footercontentonetext}>Contacts </div>

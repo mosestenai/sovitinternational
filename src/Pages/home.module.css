@@ -18,11 +18,11 @@
 .viewworkbutton {
     background-color: var(--primarycolor);
     color: var(--white);
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     width: 200px;
     height: 40px;
     border-radius: 30px;
     font-size: 20px;
-   
     border: none;
 }
 
@@ -79,7 +79,7 @@
 
 .qualityname {
     font-size: 20px;
-   
+
     font-weight: 800;
     margin-top: 10px;
 }
@@ -92,7 +92,7 @@
     background-color: var(--primarycolor);
     color: var(--white);
     font-weight: 800;
-   
+
     font-size: 45px;
     height: 80px;
     width: 100px;
@@ -114,7 +114,7 @@
 .yearsname {
     color: var(--primarycolor);
     font-weight: 800;
-   
+
     font-size: 23px;
 }
 
@@ -131,18 +131,18 @@
 
 .homeabouttext {
     font-size: 20px;
-   
+
 }
 
 .homeabouttextcompanyname {
     font-size: 30px;
     font-weight: 900;
-   
+
 }
 
 .homeabouttextcompanydesc {
     font-size: 16px;
-   
+
 }
 
 .whatwedowrap {
@@ -162,7 +162,7 @@
     font-size: 15px;
     font-weight: 900;
     margin-top: 5px;
-   
+
 }
 
 .currentworkimage {
@@ -184,7 +184,7 @@
 
 .previousprojectdesc {
     font-size: 16px;
-   
+
 }
 
 .projectprevdiv {
@@ -243,16 +243,19 @@
     height: 80px;
     width: 60%;
 }
+
 .employeescounterfirst {
     background-color: rgb(201, 206, 252);
     height: 80px;
     width: 60%;
 }
+
 .awardscounterfirst {
     background-color: silver;
     height: 80px;
     width: 60%;
 }
+
 .clientscounterfirst {
     background-color: rgb(204, 146, 146);
     height: 80px;
@@ -280,41 +283,65 @@
     font-weight: 800;
     font-size: 20px;
 }
-.testimonialdiv{
+
+.testimonialdiv {
     box-shadow: 1px 2px 6px #c7c6c6;
 }
-.testimonialchild{
-    height: 200px;
+
+.testimonialchild {
+    height: 250px;
 }
-.testimonialreview{
+
+.testimonialreview {
     font-size: 16px;
     text-align: center;
-   
+
 }
-.testimonialname{
+
+.testimonialname {
     font-size: 16px;
     font-weight: 800;
     margin-top: 10px;
-   
+
 }
-.myswiper{
+
+.myswiper {
     width: 90%;
     margin: auto;
 }
-.partnerimage{
+
+.partnerimage {
     height: 80px;
-   
+
 }
-.ourpartnersdiv{
-    margin-top: 50px;
+
+.ourpartnersdiv {
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
-.partnerdivwrap{
+
+.partnerdivwrap {
     justify-content: center;
     cursor: pointer;
     align-items: center;
     display: flex;
-    height: 200px;
+    height: 250px;
 }
+
+.contactusdiv {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    display: flex;
+}
+.bottomabout{
+    width: 28%;
+    margin: 0% 1%;
+}
+.officelocation{
+    font-weight: 900;
+}
+
+
 
 
 
@@ -335,7 +362,7 @@
     cursor: pointer;
     justify-content: center;
     align-items: center;
-   
+
     font-weight: 500;
     font-size: 25px;
     background-image: linear-gradient(to top, rgba(126, 118, 118, 0), rgb(17, 16, 16)), linear-gradient(to bottom, rgba(214, 209, 209, 0), rgb(77, 73, 73));
@@ -504,7 +531,7 @@
     font-weight: 500;
     font-size: 80px;
     line-height: 72px;
-   
+
 }
 
 .howitworkswrap {
@@ -598,6 +625,7 @@
     font-family: 'Muli';
     z-index: 6;
     width: 100%;
+    margin: -10px 0px 0px -10px;
     background-image: linear-gradient(to top, rgba(221, 196, 196, 0), rgb(44, 41, 41));
     font-size: 13px;
     padding: 30px 5px;
@@ -628,6 +656,7 @@
     font-size: 13px;
     padding: 10px;
     font-weight: 400;
+    margin: -10px 0px 0px -10px;
     position: fixed;
     background-color: black;
     background-image: linear-gradient(to top, rgba(214, 209, 209, 0), rgb(20, 19, 19)), linear-gradient(to bottom, rgba(214, 209, 209, 0), rgb(20, 20, 20));
@@ -686,7 +715,7 @@
 
 .headerimageparent {
     width: 27%;
-   
+
     font-size: 25px;
     font-weight: 100;
     color: white;
@@ -712,7 +741,7 @@
     top: 0px;
     position: absolute;
     cursor: pointer;
-    right: 5px;
+    right: 15px;
     animation: appout 1s ease-in;
 }
 
@@ -724,7 +753,7 @@
 
     to {
         top: 0px;
-        right: 5px;
+        right: 15px;
     }
 }
 
@@ -762,7 +791,7 @@
     position: absolute;
     right: 5%;
     top: 100px;
-   
+
 }
 
 .nomoretext2 {
@@ -772,7 +801,7 @@
     position: absolute;
     right: 5%;
     top: 200px;
-   
+
 }
 
 .nomoretextbelow {
@@ -782,7 +811,7 @@
     position: absolute;
     right: 5%;
     top: 300px;
-   
+
 }
 
 .nomoretextbelow2 {
@@ -792,7 +821,7 @@
     position: absolute;
     right: 5%;
     top: 350px;
-   
+
 }
 
 .applogosparent {
@@ -856,7 +885,7 @@ h1 {
 
 .iplugdescriptionleft {
     text-align: left;
-   
+
     font-weight: 500;
     width: 30%;
     font-size: 23px;
@@ -868,7 +897,7 @@ h1 {
 .iplugdescriptionleftout {
     color: black;
     text-align: left;
-   
+
     font-weight: 500;
     font-size: 23px;
     width: 30%;
@@ -1058,7 +1087,7 @@ h1 {
 }
 
 .getappdivtext {
-   
+
     font-weight: 500;
     margin-top: 50px;
     font-size: 45px;
@@ -1133,7 +1162,7 @@ h1 {
 }
 
 .footercontents {
-   
+
     font-weight: 400px;
     font-size: 20px;
 }
@@ -1156,14 +1185,14 @@ h1 {
 }
 
 .footercontentonemail {
-   
+
     font-weight: 700;
     color: white;
     font-size: 14px;
 }
 
 .footerreserved {
-   
+
     font-weight: 300;
     color: white;
     font-size: 12px;
@@ -1171,7 +1200,7 @@ h1 {
 
 .footerreservedbuttons {
     background-color: white;
-   
+
     font-weight: 300;
     padding: 5px 10px;
     cursor: pointer;
@@ -1373,7 +1402,7 @@ h1 {
         width: 40%;
         margin: auto;
         top: 130px;
-       
+
     }
 
     .nomoretext2 {
@@ -1385,7 +1414,7 @@ h1 {
         width: 70%;
         margin: auto;
         top: 140px;
-       
+
     }
 
     .homephone {
@@ -1409,7 +1438,7 @@ h1 {
         width: 80%;
         margin: auto;
         top: 150px;
-       
+
     }
 
     .nomoretextbelow2 {
@@ -1421,7 +1450,7 @@ h1 {
         width: 40%;
         margin: auto;
         top: 155px;
-       
+
     }
 
     .applogosparent {
@@ -1547,7 +1576,7 @@ h1 {
 
     .iplugdescriptionleft {
         text-align: left;
-       
+
         font-weight: 500;
         width: 90%;
         font-size: 20px;
@@ -1557,7 +1586,7 @@ h1 {
 
     .iplugdescriptionleftout {
         text-align: left;
-       
+
         font-weight: 500;
         font-size: 20px;
         width: 90%;
@@ -1633,7 +1662,7 @@ h1 {
     }
 
     .getappdivtext {
-       
+
         font-weight: 500;
         margin-top: 50px;
         font-size: 30px;
@@ -1668,7 +1697,7 @@ h1 {
     }
 
     .footerreserved {
-       
+
         font-weight: 300;
         color: white;
         width: 80%;
@@ -1683,7 +1712,7 @@ h1 {
         font-weight: 500;
         font-size: 25px;
         line-height: 25px;
-       
+
     }
 
     .firstdivhow {

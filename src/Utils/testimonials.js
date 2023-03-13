@@ -7,22 +7,22 @@ export const testimonialsarray = [
     {
         id: 2,
         name: "Larry",
-        review: "Working with sovit international has proven to be productive and i would truly say if it were not for them, our buidling wouldn't be standing"
-    },
-    {
-        id: 3,
-        name: "Henry",
-        review: "Working with sovit international has proven to be productive and i would truly say if it were not for them, our buidling wouldn't be standing"
+        review: " Thank goodness for Sovit international, My home looks fabulous. You can’t even tell it was a construction sight & they dug 8 feet down to repair the pipes. I Highly recommend!!"
     },
     {
         id: 4,
         name: "John",
-        review: "Working with sovit international has proven to be productive and i would truly say if it were not for them, our buidling wouldn't be standing"
+        review: "They are thorough and responsive. They have insightful advice and they did a great job of really listening to what we wanted. They guide you through every step and make an overwhelming process stress free. We highly recommend!"
     },
     {
         id: 5,
         name: "Walter",
-        review: "Working with sovit international has proven to be productive and i would truly say if it were not for them, our buidling wouldn't be standing"
+        review: "Sovit international performed very professionally with great communication and excellent onsite project management. They earned our confidence during the upgrade project at our Wastewater Treatment Plant"
+    },
+    {
+        id: 3,
+        name: "Henry",
+        review: "We have been very satisfied with the process that Sovit has in place. We are nearing the end of the design phase and at every meeting we have been pleasantly surprised by the material and their understanding of what we were trying to accomplish. It made the whole process enjoyable. We are anxious to enter into construction!"
     }
 ]
 
