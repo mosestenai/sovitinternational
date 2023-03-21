@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Closeredirect from "./Pages/closeredirect";
+import Aboutus from "./Pages/aboutus";
+import Ourclients from "./Pages/ourclients";
 import Homepage from "./Pages/home";
+import Ourservices from "./Pages/ourservices";
+import Ourprojects from "./Pages/ourprojects";
+import Safety from "./Pages/safety";
 
 const App = () => {
   document.title = "Sovit international";
@@ -12,11 +16,11 @@ const App = () => {
       {/* <Navbar userStr={user} /> */}
       <Routes>
         <Route path="/" element={<Homepage />} exact />
-        <Route path="/how-it-works" element={<Homepage />} exact />
-        <Route path="/rates" element={<Homepage />} exact />
-        <Route path="/#" element={<Homepage />} exact />
-        <Route path="/stories" element={<Homepage />} exact />
-        <Route path="/become-a-iplug-partner" element={<Homepage />} exact />
+        <Route path="/aboutus" element={<Aboutus />} exact />
+        <Route path="/ourservices" element={<Ourservices />} exact />
+        <Route path="/ourprojects" element={<Ourprojects />} exact />
+        <Route path="/ourclients" element={<Ourclients />} exact />
+        <Route path="/safety-and-compliance" element={<Safety />} exact />
       </Routes>
       {/* <Footer /> */}
     </Router>

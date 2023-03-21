@@ -10,27 +10,19 @@ const Header = ({ scrolldown, scrollPosition }) => {
     const location = useLocation();
     const route = location.pathname;
 
-    const [currentpath, setcurrentpath] = useState('home');
-
-    const gotocurrent = (path) => {
-        setcurrentpath(path)
-        const object = { path: path }
-        sessionStorage?.setItem("locationmessage", JSON.stringify(object));
-    }
-
 
     return (
         <div className={scrollPosition >= 5 ? styles.headerdivscrolldown : styles.headerdiv}>
-            <div className={styles.headerimageparent}>
+            <div className={styles.headerimageparent} onClick={() => navigate("/")}>
                 <img style={{
                     height: 50,
                 }} src={require('./../assets/common/wlogo.png')} />
             </div>
-            <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("home")}>{currentpath === "home" ? <u>HOME</u> : "HOME"}</div>
-            <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("aboutus")}>{currentpath === "aboutus" ? <u>ABOUT</u> : "ABOUT"}</div>
-            <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("services")}>{currentpath === "services" ? <u>SERVICES</u> : "SERVICES"}</div>
-            <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("projects")}> {currentpath === "projects" ? <u>PROJECTS</u> : "PROJECTS"}</div>
-            <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("clients")}> {currentpath === "clients" ? <u>CLIENTS</u> : "CLIENTS"}</div>
+            <div className={styles.hoverunderlineanimationup} onClick={() => navigate("/")}>{route === "/" ? <u>HOME</u> : "HOME"}</div>
+            <div className={styles.hoverunderlineanimationup} onClick={() => navigate("/aboutus")}>{route === "/aboutus" ? <u>ABOUT</u> : "ABOUT"}</div>
+            <div className={styles.hoverunderlineanimationup} onClick={() => navigate("/ourservices")}>{route === "/ourservices" ? <u>SERVICES</u> : "SERVICES"}</div>
+            <div className={styles.hoverunderlineanimationup} onClick={() => navigate("/ourprojects")}> {route === "/ourprojects" ? <u>PROJECTS</u> : "PROJECTS"}</div>
+            <div className={styles.hoverunderlineanimationup} onClick={() => navigate("/ourclients")}> {route === "/ourclients" ? <u>CLIENTS</u> : "CLIENTS"}</div>
             <div className={styles.languagediv}>ENG</div>
             <div className={scrollPosition >= 5 ? styles.getappbutton : styles.getappbuttondown}>CALL US</div>
             <div className={shownavbar ? styles.navbarmovein : styles.navbar}>
@@ -47,11 +39,11 @@ const Header = ({ scrolldown, scrollPosition }) => {
                 </div>
                 <div className={styles.navbarcontentmiddle} onClick={() => setshownavbar(!shownavbar)} />
                 <div className={styles.navbarcontent}>
-                    <div onClick={() => gotocurrent("home")}>HOME</div>
-                    <div onClick={() => gotocurrent("aboutus")}>ABOUT</div>
-                    <div onClick={() => gotocurrent("services")}>SERVICES</div>
-                    <div onClick={() => gotocurrent("projects")}>PROJECTS</div>
-                    <div onClick={() => gotocurrent("clients")}>CLIENTS</div>
+                    <div onClick={() => navigate("/")}>HOME</div>
+                    <div onClick={() => navigate("/aboutus")}>ABOUT</div>
+                    <div onClick={() => navigate("/ourservices")}>SERVICES</div>
+                    <div onClick={() => navigate("/ourprojects")}>PROJECTS</div>
+                    <div onClick={() => navigate("/ourclients")}>CLIENTS</div>
                     <button>CALL US</button>
                 </div>
             </div>

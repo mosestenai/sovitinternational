@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, NavigationType, useLocation } from "react-router-dom";
+import { Link, NavigationType, useLocation, useNavigate } from "react-router-dom";
 import CountUp from 'react-countup';
 import { useScrollDirection } from 'react-use-scroll-direction'
 import styles from './home.module.css';
@@ -7,7 +7,7 @@ import Header from "./header";
 import { FaAngleDown, FaArrowCircleDown, FaBars, FaBeer, FaEnvelope, FaFacebook, FaInstagramSquare, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaPlus, FaTimes, FaWhatsapp, FaYoutubeSquare } from 'react-icons/fa';
 import { Slide, Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
-import useOnScreen from "./detectonview";
+import useOnScreen from "../functions/detectonview";
 import { Backdrop, Button, Container } from "@mui/material";
 import { ArrowForward, ArrowRight, Diversity1Outlined, HealthAndSafetyOutlined, MiscellaneousServices, SettingsAccessibility, WorkspacePremiumOutlined } from "@mui/icons-material";
 import Zoomicon from "../Components/zoomicon";
@@ -18,8 +18,9 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { partnersarray, testimonialsarray } from "../Utils/testimonials";
+import { partnersarray, testimonialsarray } from "../Utils/arrays";
 import { primarycolor } from "../Utils/colors";
+import Sitefooter from "../Components/footer";
 
 
 const Homepage = () => {
@@ -27,7 +28,8 @@ const Homepage = () => {
     //header states
     const [shownavbar, setshownavbar] = useState(false);
     const location = useLocation();
-    const route = location.pathname;
+    const navigate = useNavigate()
+
 
     const [showmuddlecontents, setshowmuddlecontents] = useState(true);
     const ref = useRef()
@@ -57,7 +59,7 @@ const Homepage = () => {
 
     setTimeout(() => {
         setloading(false)
-    }, 5000);
+    }, 3000);
 
 
 
@@ -68,74 +70,6 @@ const Homepage = () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
-  
-    const Localheader = ({ scrolldown, scrollPosition }) => {
-
-        const gotocurrent = (path) => {
-            setcurrentpath(path)
-            navigatetopath(path)
-        }
-
-       console.log(scrollPosition)
-
-
-        return (
-            <div className={scrollPosition >= 5 ? styles.headerdivscrolldown : styles.headerdiv}>
-                <div className={styles.headerimageparent}>
-                    <img style={{
-                        height: 50,
-                    }} src={require('./../assets/common/wlogo.png')} />
-                </div>
-                <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("home")}>{currentpath === "home" ? <u>HOME</u> : "HOME"}</div>
-                <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("aboutus")}>{currentpath === "aboutus" ? <u>ABOUT</u> : "ABOUT"}</div>
-                <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("services")}>{currentpath === "services" ? <u>SERVICES</u> : "SERVICES"}</div>
-                <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("projects")}> {currentpath === "projects" ? <u>PROJECTS</u> : "PROJECTS"}</div>
-                <div className={styles.hoverunderlineanimationup} onClick={() => gotocurrent("clients")}> {currentpath === "clients" ? <u>CLIENTS</u> : "CLIENTS"}</div>
-                <div className={styles.languagediv}>ENG</div>
-                <div className={scrollPosition >= 5 ? styles.getappbutton : styles.getappbuttondown}>CALL US</div>
-                <div className={shownavbar ? styles.navbarmovein : styles.navbar}>
-                    <div onClick={() => setshownavbar(!shownavbar)} style={{
-                        backgroundColor: shownavbar ? "#430f0f" : "black",
-                        height: 40,
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: 'center',
-                        width: "15%",
-                        cursor: "pointer"
-                    }}>
-                        {shownavbar ? <FaTimes color="silver" size={30} /> : <FaBars color={"silver"} size={30} />}
-                    </div>
-                    <div className={styles.navbarcontentmiddle} onClick={() => setshownavbar(!shownavbar)} />
-                    <div className={styles.navbarcontent}>
-                        <div onClick={() => gotocurrent("home")}>HOME</div>
-                        <div onClick={() => gotocurrent("aboutus")}>ABOUT</div>
-                        <div onClick={() => gotocurrent("services")}>SERVICES</div>
-                        <div onClick={() => gotocurrent("projects")}>PROJECTS</div>
-                        <div onClick={() => gotocurrent("clients")}>CLIENTS</div>
-                        <button>CALL US</button>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
-
-
-
-
-    // setInterval(() => {
-    //     const userobject = sessionStorage?.getItem("locationmessage");
-    //     const object = JSON.parse(userobject);
-    //     if (object) {
-    //         if (object?.path) {
-    //             if(object.path !== currentpath){
-    //                 setcurrentpath(object.path)
-    //                 navigatetopath(object.path)
-    //             }
-    //         }
-    //     }
-    // }, 2000);
 
 
 
@@ -192,7 +126,7 @@ const Homepage = () => {
                             industry. At Sovit we seek to<br />
                             provide innovative professional<br />
                             touch in all our services.<br /><br />
-                            <div className={styles.discoverbutton} >
+                            <div className={styles.discoverbutton} onClick={() => navigate("/aboutus")}>
                                 DISCOVER MORE ABOUT US
                             </div>
                         </div>}
@@ -267,7 +201,7 @@ const Homepage = () => {
                     <div className={styles.homeaboutyear}>
                         <div className={styles.wrapyears}>
                             <div className={styles.wrapyearnumber}>
-                                <CountUp start={0} end={20} enableScrollSpy={true} delay={0} duration={5}>
+                                <CountUp start={0} end={8} enableScrollSpy={true} delay={0} duration={5}>
                                     {({ countUpRef }) => (
                                         <span ref={countUpRef} />
                                     )}
@@ -295,7 +229,7 @@ const Homepage = () => {
                             committed to improving ourselves and the wider <br />
                             industry we work within.<br /><br />
                         </div >
-                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                        <Button variant="outlined" endIcon={<ArrowForward />} onClick={() => navigate("/aboutus")}>
                             Read more
                         </Button>
                     </div>
@@ -363,7 +297,7 @@ const Homepage = () => {
                             budgets and programming - we have the < br />
                             skills, knowledge and experience
                         </div ><br />
-                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                        <Button variant="outlined" endIcon={<ArrowForward />} onClick={()=>navigate("/ourprojects")}>
                             VIEW ALL PROJECTS
                         </Button>
                     </div>
@@ -386,7 +320,7 @@ const Homepage = () => {
                                 <div className={styles.projectscountersecond} />
                                 <div className={styles.projectscountertext}>
                                     <div className={styles.projectscountertextnumber}>
-                                        <CountUp start={0} end={1000} delay={0} enableScrollSpy={true} duration={10}>
+                                        <CountUp start={0} end={88} delay={0} enableScrollSpy={true} duration={10}>
                                             {({ countUpRef }) => (
                                                 <span ref={countUpRef} />
                                             )}
@@ -403,7 +337,7 @@ const Homepage = () => {
                                 <div className={styles.projectscountersecond} />
                                 <div className={styles.projectscountertext}>
                                     <div className={styles.projectscountertextnumber}>
-                                        <CountUp start={0} end={450} delay={0} enableScrollSpy={true} duration={8}>
+                                        <CountUp start={0} end={58} delay={0} enableScrollSpy={true} duration={8}>
                                             {({ countUpRef }) => (
                                                 <span ref={countUpRef} />
                                             )}
@@ -419,7 +353,7 @@ const Homepage = () => {
                                 <div className={styles.projectscountersecond} />
                                 <div className={styles.projectscountertext}>
                                     <div className={styles.projectscountertextnumber}>
-                                        <CountUp start={0} end={25} delay={0} enableScrollSpy={true} duration={5}>
+                                        <CountUp start={0} end={9} delay={0} enableScrollSpy={true} duration={5}>
                                             {({ countUpRef }) => (
                                                 <span ref={countUpRef} />
                                             )}
@@ -435,7 +369,7 @@ const Homepage = () => {
                                 <div className={styles.projectscountersecond} />
                                 <div className={styles.projectscountertext}>
                                     <div className={styles.projectscountertextnumber}>
-                                        <CountUp start={0} end={100} delay={0} enableScrollSpy={true} duration={10}>
+                                        <CountUp start={0} end={50} delay={0} enableScrollSpy={true} duration={10}>
                                             {({ countUpRef }) => (
                                                 <span ref={countUpRef} />
                                             )}
@@ -552,12 +486,12 @@ const Homepage = () => {
                         </div>
                         <br />
                         <div>
-                            <FaMapMarkerAlt /> Tower one , jogoo road,<br /> Nairobi<br />
+                            <FaMapMarkerAlt /> Kindaruma Apartments, off Kindaruma road.<br /> Nairobi<br />
                             <br />
-                            P.O BOX 123 NAIROBI<br />
+                            P.O BOX 1285-00502  NAIROBI<br />
                         </div>
                         <div style={{ display: "flex", marginTop: 5 }}>
-                            <FaEnvelope style={{ marginTop: 3, marginRight: 5 }} /> support@sovitinternational.co.ke
+                            <FaEnvelope style={{ marginTop: 3, marginRight: 5 }} /> info@sovitinternational.co.ke
                         </div>
                         <div style={{ display: "flex", marginTop: 5 }}>
                             <FaPhoneAlt style={{ marginTop: 3, marginRight: 5 }} /> +254 717 254 347
@@ -569,9 +503,9 @@ const Homepage = () => {
                         </div>
                         <br />
                         <div>
-                            <FaMapMarkerAlt /> Baraka plaza , Kenyatta Avenue,<br /> Nakuru<br />
+                            <FaMapMarkerAlt /> Kindaruma Apartments, off Kindaruma road.<br /> Nairobi<br />
                             <br />
-                            P.O BOX 343 NAKURU<br />
+                            P.O BOX 1285-00502  NAIROBI<br />
                         </div>
                         <div style={{ display: "flex", marginTop: 5 }}>
                             <FaEnvelope style={{ marginTop: 3, marginRight: 5 }} /> support@sovitinternational.co.ke
@@ -581,66 +515,8 @@ const Homepage = () => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.bottomhomediv} ref={ref2}>
-                    {/* <div className={styles.bottomdivimageswrap}  >
-                        <div className={styles.wrapmaxresdefault2}>
-                            <img src={require("./../assets/home/image12.jpg")} className={styles.maxresdefault2} />
-                            <div className={styles.howitworks}>
-                                <div className={styles.imagebuttondescription}>HOW IT WORKS</div>
-                                <div className={styles.morebutton}>MORE</div>
-                            </div>
-                        </div>
-                        <div className={styles.wrapmaxresdefault2}>
-                            <img src={require("./../assets/home/image13.jpg")} className={styles.maxresdefault2} />
-                            <div className={styles.howitworks}>
-                                <div className={styles.imagebuttondescription}>RATES</div>
-                                <div className={styles.morebutton}>MORE</div>
-                            </div>
-                        </div>
-                    </div> */}
-                    <div className={styles.almostbottomdiv}>
-                        <div className={scrollup ? styles.bottomdivfooterout : styles.bottomdivfooter} ref={bottomref}>
-                            <div className={styles.wrapcontents} >
-                                <div className={styles.footercontentone}>
-                                    <div className={styles.footercontentonetext}>Social </div>
-                                    <div className={styles.sociallinks}>
-                                        <div className={styles.sociallinkdiv}>
-                                            <FaFacebook />
-                                        </div>
-                                        <div className={styles.sociallinkdiv}>
-                                            <FaInstagramSquare />
-                                        </div>
-                                        <div className={styles.sociallinkdiv}>
-                                            <FaLinkedinIn />
-                                        </div>
-                                        <div className={styles.sociallinkdiv}>
-                                            <FaYoutubeSquare />
-                                        </div>
-                                        <div className={styles.sociallinkdiv}>
-                                            <FaWhatsapp />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.footercontentone}>
-                                    <img src={require("./../assets/common/wlogo.png")} height={60} />
-                                </div>
-                                <div className={styles.footercontentlast}>
-                                    <div className={styles.footercontentonetext}>Contacts </div>
-                                    <div className={styles.footercontentonemail}>mail: info@sovitinternational.co.ke</div>
-                                </div>
-                            </div>
-                            <br /> <br />
-                            <hr color="white" />
-                            <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                <div className={styles.footerreserved}>© 2023 Sovit s.r.l. P.IVA: 10645650960. All Rights Reserved.</div>
-                            </div>
-                            <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                <div className={styles.footerreservedbuttons}>Privacy Policy</div>
-                                <div className={styles.footerreservedbuttons}>Cookie Policy</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Sitefooter ref={ref2} bottomref={bottomref} scrollup={scrollup} />
+
             </div>
         </div>
     )

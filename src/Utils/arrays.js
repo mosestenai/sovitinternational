@@ -64,6 +64,41 @@ export const partnersarray = [
         src: require("./../assets/partners/massaistores.jpg"),
         link: "https://sovitinternational.co.ke"
     }
+    ,{
+        id: 7,
+        name: "Unilever Kenya",
+        src: require("./../assets/partners/unilever.png"),
+        link: "https://www.unilever.com/"
+    }
+]
+
+//employees
+export const employees = [
+    {
+        name: "Bill harvey",
+        position: "Director",
+        src: require("./../assets/partners/massaistores.jpg"),
+    },
+    {
+        name: "Bill harvey",
+        position: "Director",
+        src: require("./../assets/partners/massaistores.jpg"),
+    },
+    {
+        name: "Bill harvey",
+        position: "Director",
+        src: require("./../assets/partners/massaistores.jpg"),
+    },
+    {
+        name: "Bill harvey",
+        position: "Director",
+        src: require("./../assets/partners/massaistores.jpg"),
+    },
+    {
+        name: "Bill harvey",
+        position: "Director",
+        src: require("./../assets/partners/massaistores.jpg"),
+    },
 ]
 
 

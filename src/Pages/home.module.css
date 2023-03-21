@@ -604,18 +604,18 @@
 }
 
 .backdrop img {
-    height: 150px;
+    height: 60px;
     animation: bounce2 1s infinite alternate;
     -webkit-animation: bounce2 1s infinite alternate;
 }
 
 @keyframes bounce2 {
     from {
-        height: 150px;
+        height: 60px;
     }
 
     to {
-        height: 180px;
+        height: 70px;
     }
 }
 
@@ -715,7 +715,7 @@
 
 .headerimageparent {
     width: 27%;
-
+    cursor: pointer;
     font-size: 25px;
     font-weight: 100;
     color: white;

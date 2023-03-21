@@ -10,7 +10,7 @@ const Zoomicon = () => {
             open={true}
         >
             <div className={styles.backdrop}>
-                <img src={require('./../assets/common/zoom.jpg')} />
+                <img src={require('./../assets/common/black.jpg')} />
             </div>
         </Backdrop>
     )
