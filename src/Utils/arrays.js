@@ -64,7 +64,7 @@ export const partnersarray = [
         src: require("./../assets/partners/massaistores.jpg"),
         link: "https://sovitinternational.co.ke"
     }
-    ,{
+    , {
         id: 7,
         name: "Unilever Kenya",
         src: require("./../assets/partners/unilever.png"),
@@ -75,7 +75,7 @@ export const partnersarray = [
 //employees
 export const employees = [
     {
-        name: "Bill harvey",
+        name: "Fredrick Koba",
         position: "Director",
         src: require("./../assets/partners/massaistores.jpg"),
     },
@@ -98,6 +98,40 @@ export const employees = [
         name: "Bill harvey",
         position: "Director",
         src: require("./../assets/partners/massaistores.jpg"),
+    },
+]
+
+//awards
+export const awards = [
+    {
+        name: "Best Construction company",
+        event: "Construction summit",
+        location: "Nairobi",
+        src: require("./../assets/awards/award1.jpg"),
+    },
+    {
+        name: "Best Construction company",
+        event: "Construction summit",
+        location: "Nairobi",
+        src: require("./../assets/awards/award3.jpg"),
+    },
+    {
+        name: "Best Construction company",
+        event: "Construction summit",
+        location: "Nairobi",
+        src: require("./../assets/awards/award4.jpg"),
+    },
+    {
+        name: "Best Construction company",
+        event: "Construction summit",
+        location: "Nairobi",
+        src: require("./../assets/awards/award3.jpg"),
+    },
+    {
+        name: "Best Construction company",
+        event: "Construction summit",
+        location: "Nairobi",
+        src: require("./../assets/awards/award5.jpeg"),
     },
 ]
 

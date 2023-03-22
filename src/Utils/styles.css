@@ -112,6 +112,30 @@
     margin: 20px 0px;
 }
 
+.awardswrap {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.awardchilddiv {
+    width: 23%;
+    margin: 1%
+}
+
+.awardchilddiv img {
+    border-radius: 10px;
+    height: 150;
+    width: 100%;
+}
+
+.awardchilddiv div {
+    margin: 10px 0px;
+    font-weight: 600;
+}
+
+
 
 
 
@@ -202,23 +226,76 @@
     margin: 40px 0px;
 }
 
-.safetyleftdiv{
+.safetyleftdiv {
     display: flex;
     width: 48%;
     margin: 1%;
 }
-.safetyleftdiv img{
+
+.safetyleftdiv img {
     height: 100px;
 }
+
 .safetyworddiv {
     margin: 0px 15px;
 }
+
 .safetyimageright {
     width: 48%;
     margin: 1%;
 }
-.safetychildtitle{
+
+.safetyimageright img {
+    width: 100%;
+}
+
+.safetychildtitle {
     font-size: 30px;
     font-weight: 700;
     color: var(--secondarycolor);
+}
+
+.safetydesc {
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+/* contact us page */
+.contactusform {
+    box-shadow: 1px 1px 2px 2px #c7c6c6;
+    padding: 20px;
+}
+
+.basictextinputwrap {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+.basictextinput {
+    width: 40%;
+}
+
+.textareafield {
+    width: 50%;
+}
+
+.messageheading {
+    width: 100%;
+}
+
+.messagecontentwrap {
+    width: 90%;
+    margin: auto;
+    padding: 50px 0px;
+}
+
+.messagecontent {
+    width: 100%;
+   
 }

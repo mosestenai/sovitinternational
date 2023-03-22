@@ -19,7 +19,7 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { employees, partnersarray, testimonialsarray } from "../Utils/arrays";
+import { awards, employees, partnersarray, testimonialsarray } from "../Utils/arrays";
 import { primarycolor } from "../Utils/colors";
 import Sitefooter from "../Components/footer";
 
@@ -95,7 +95,7 @@ const Aboutus = () => {
                         <div className="aboutuslinkdiv" onClick={() => navigate("/safety-and-compliance")}>
                             Safety and Compliance
                         </div>
-                        <div className="aboutuslinkdiv">
+                        <div className="aboutuslinkdiv" onClick={() => navigatetopath("awards")}>
                             Awards
                         </div>
                         <div className="aboutuslinkdiv" onClick={() => navigate("/ourclients")}>
@@ -141,7 +141,7 @@ const Aboutus = () => {
                         Our purpose at Sovit International is, quite simply, to create a better world at work for everyone.
                         <br /><br />
 
-                        <div className="purposetitle">Purpose</div>
+                        <div className="purposetitle" id="team">Purpose</div>
                         <br />
                         Our purpose at Sovit  is to create a better world at<br />
                         work and we aim to do this by bringing the best possible<br />
@@ -156,7 +156,7 @@ const Aboutus = () => {
                     </div>
 
                 </div>
-                <div className="teammembersheader" id="team">Our Team members</div>
+                <div className="teammembersheader" id="awards" >Our Team members</div>
                 <div className="teammemberswrap">
                     {employees.map((val, key) => {
                         return (
@@ -170,6 +170,17 @@ const Aboutus = () => {
                         )
                     })}
 
+                </div>
+                <div className="teammembersheader" id="awards" >Our Accomplishments</div>
+                <div className="awardswrap">
+                    {awards.map((val, key) => {
+                        return (
+                            <div className="awardchilddiv" key={key}>
+                                <img src={val.src} />
+                                <div>{val.name} ~ {val.event} {val.location}</div>
+                            </div>
+                        )
+                    })}
                 </div>
                 <Sitefooter ref={ref2} bottomref={bottomref} scrollup={scrollup} />
             </div>

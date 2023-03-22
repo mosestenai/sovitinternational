@@ -24,7 +24,7 @@ const Header = ({ scrolldown, scrollPosition }) => {
             <div className={styles.hoverunderlineanimationup} onClick={() => navigate("/ourprojects")}> {route === "/ourprojects" ? <u>PROJECTS</u> : "PROJECTS"}</div>
             <div className={styles.hoverunderlineanimationup} onClick={() => navigate("/ourclients")}> {route === "/ourclients" ? <u>CLIENTS</u> : "CLIENTS"}</div>
             <div className={styles.languagediv}>ENG</div>
-            <div className={scrollPosition >= 5 ? styles.getappbutton : styles.getappbuttondown}>CALL US</div>
+            <div onClick={() => navigate("/contact-us")} className={scrollPosition >= 5 ? styles.getappbutton : styles.getappbuttondown}>REQUEST A QUOTE</div>
             <div className={shownavbar ? styles.navbarmovein : styles.navbar}>
                 <div onClick={() => setshownavbar(!shownavbar)} style={{
                     backgroundColor: shownavbar ? "#430f0f" : "black",
@@ -44,7 +44,7 @@ const Header = ({ scrolldown, scrollPosition }) => {
                     <div onClick={() => navigate("/ourservices")}>SERVICES</div>
                     <div onClick={() => navigate("/ourprojects")}>PROJECTS</div>
                     <div onClick={() => navigate("/ourclients")}>CLIENTS</div>
-                    <button>CALL US</button>
+                    <button onClick={() => navigate("/contact-us")}>REQUEST A QUOTE</button>
                 </div>
             </div>
         </div>

@@ -145,7 +145,7 @@ const Homepage = () => {
                             industrial and commercial<br />
                             sectors<br /><br /><br />
                         </div>
-                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                        <Button variant="outlined" endIcon={<ArrowForward />} onClick={() => navigate("/ourservices")}>
                             Read more
                         </Button>
                     </div>
@@ -160,7 +160,7 @@ const Homepage = () => {
                             by our work safe is at <br />
                             core to Sovit's values<br /><br /><br /><br />
                         </div>
-                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                        <Button variant="outlined" endIcon={<ArrowForward />} onClick={() => navigate("/safety-and-compliance")}>
                             Read more
                         </Button>
                     </div>
@@ -176,7 +176,7 @@ const Homepage = () => {
                             professionals.We all <br />
                             love to build, we are engineers<br /><br />
                         </div>
-                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                        <Button variant="outlined" endIcon={<ArrowForward />} onClick={() => navigate("/aboutus")}>
                             Read more
                         </Button>
                     </div>
@@ -192,7 +192,7 @@ const Homepage = () => {
                             maintenance items long <br />
                             after we are obliged to.<br /><br />
                         </div>
-                        <Button variant="outlined" endIcon={<ArrowForward />}>
+                        <Button variant="outlined" endIcon={<ArrowForward />} onClick={() => navigate("/safety-and-compliance")}>
                             Read more
                         </Button>
                     </div>
@@ -297,7 +297,7 @@ const Homepage = () => {
                             budgets and programming - we have the < br />
                             skills, knowledge and experience
                         </div ><br />
-                        <Button variant="outlined" endIcon={<ArrowForward />} onClick={()=>navigate("/ourprojects")}>
+                        <Button variant="outlined" endIcon={<ArrowForward />} onClick={() => navigate("/ourprojects")}>
                             VIEW ALL PROJECTS
                         </Button>
                     </div>

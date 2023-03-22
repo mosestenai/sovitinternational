@@ -88,15 +88,45 @@ const Safety = () => {
                         <div className="safetyleftdiv">
                             <img src={require("./../assets/icons/safe2.png")} />
                             <div className="safetyworddiv">
-                                <div className="safetychildtitle">Safe & Secure</div>
-                                <div>
-
+                                <div className="safetychildtitle">Health & Safety</div>
+                                <div className="safetydesc">
+                                    Construction sites are dynamic activities where workers
+                                    engage in many activities that may expose them to a
+                                    variety of safety hazards, such as falling objects,
+                                    working from rooftops or scaffolding, exposure to heavy
+                                    construction equipment, or the use of temporary electrical
+                                    circuits while operating electrical equipment and machinery
+                                    in damp locations.At sovit we ensure our workers have protective
+                                    gears, trained and well informed to avoid any accidents at
+                                    any construction or project that we engage in.
                                 </div>
                             </div>
                         </div>
                         <div className="safetyimageright">
+                            <img src={require("./../assets/icons/gear.jpeg")} />
+                        </div>
+                    </div>
+                    <div className="safetywrap">
+                        <div className="safetyimageright">
                             <img src={require("./../assets/home/imageone.jpg")} />
                         </div>
+                        <div className="safetyleftdiv">
+                            <img src={require("./../assets/icons/safe3.png")} />
+                            <div className="safetyworddiv">
+                                <div className="safetychildtitle">Standards</div>
+                                <div className="safetydesc">
+                                    Delivering high quality and safe structures is
+                                    embodied in one of our core values. We continuously
+                                    evolve how we partner with our clients, with safety
+                                    always at the heart of the success of our people and business.
+                                    At sovit the work that we have accomplished so far
+                                    is highy rated to the best standards. We are registered
+                                    with National Construction Authority and also permitted
+                                    to operate in most of the counties in kenya.
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
 

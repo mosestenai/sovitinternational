@@ -333,11 +333,13 @@
     margin-bottom: 40px;
     display: flex;
 }
-.bottomabout{
+
+.bottomabout {
     width: 28%;
     margin: 0% 1%;
 }
-.officelocation{
+
+.officelocation {
     font-weight: 900;
 }
 
@@ -1314,7 +1316,7 @@ h1 {
         height: 40px;
     }
 
-    .languagediv, .getappbutton, .hoverunderlineanimation, .getappbuttondown {
+    .languagediv, .getappbutton, .hoverunderlineanimation, .hoverunderlineanimationup, .getappbuttondown {
         display: none;
     }
 
