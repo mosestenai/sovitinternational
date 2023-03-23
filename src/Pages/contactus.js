@@ -8,10 +8,13 @@ import { FaAngleDown, FaUsers } from 'react-icons/fa';
 import Zoomicon from "../Components/zoomicon";
 import { awards, employees } from "../Utils/arrays";
 import Sitefooter from "../Components/footer";
-import { Button, TextareaAutosize, TextField } from "@mui/material";
+import { Alert, AlertTitle, Button, TextareaAutosize, TextField } from "@mui/material";
 import { Textarea } from "@mui/joy";
 import { Send } from "@mui/icons-material";
 import Officemap from "../Components/map";
+import axios from "axios";
+import Loadingspinner from "../Components/loading";
+import Successspinner from "../Components/successspinner";
 
 
 const Contactus = () => {
@@ -24,6 +27,12 @@ const Contactus = () => {
 
     const { isScrollingDown } = useScrollDirection()
     const [scrollPosition, setScrollPosition] = useState(0);
+
+    //actions
+    const [success, setsuccess] = useState('');
+    const [error, seterror] = useState('');
+    const [progress, setprogress] = useState(false);
+
 
     //contact form
     const [name, setname] = useState('');
@@ -54,6 +63,36 @@ const Contactus = () => {
 
 
 
+    const sendemail = () => {
+        seterror("")
+        setprogress(true)
+        axios.defaults.headers = { 'Content-Type': 'application/json', Authorization: 'Bearer ' + "test" }
+        axios.post("https://api.sovitinternational.co.ke/api/sendmail.php", {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        }).then(response => {
+            setprogress(false)
+            if (!response.data.error) {
+                setsuccess("Sent.We'll get back to you asap")
+                setTimeout(() => {
+                    setsuccess("")
+                    setname("")
+                    setemail("")
+                    setsubject("")
+                    setmessage("")
+                }, 3000);
+            } else {
+                seterror(response.data.message)
+            }
+            // 
+        }).catch(error => {
+            setprogress(false)
+            seterror("there was an error try again later")
+        });
+    }
+
     return (
         <div onWheel={event => {
             if (event.nativeEvent.wheelDelta > 0) {
@@ -63,6 +102,8 @@ const Contactus = () => {
             }
         }}>
             {loading && <Zoomicon />}
+            {progress && <Loadingspinner />}
+            {success && <Successspinner message={success} />}
             <div className={styles.homebody} id="home">
                 <div className="aboutustopdiv">
                     <Header scrolldown={isScrollingDown} scrollPosition={scrollPosition} />
@@ -79,10 +120,15 @@ const Contactus = () => {
 
                     </div>
                     <div className="abouscontentdivright">
+                        {error?.length > 0 &&
+                            <Alert severity="error">
+                                <AlertTitle>Error</AlertTitle>
+                                {error} — <strong>check it out!</strong>
+                            </Alert>}
                         <div className="contactusform">
                             <div className="basictextinputwrap">
                                 <TextField value={name} onChange={(e) => setname(e.target.value)} className="basictextinput" id="standard-basic" label="Your name" variant="standard" />
-                                <TextField value={email} onChange={(e) => setemail(e.target.value)} className="basictextinput" autoComplete="email" id="standard-basic" label="Your email" variant="standard" />
+                                <TextField value={email} onChange={(e) => setemail(e.target.value)} className="basictextinput" autoComplete="tel" id="standard-basic" label="Your Phone Number" variant="standard" />
                             </div>
                             <br /><br />
                             <div className="basictextinputwrap">
@@ -91,12 +137,10 @@ const Contactus = () => {
                             <div className="messagecontentwrap">
                                 <TextField value={message} onChange={(e) => setmessage(e.target.value)} multiline inputProps={{ maxLength: 300 }} className="messagecontent" id="standard-basic" label="Your message (max 300 characters)" variant="standard" />
                                 <br /><br />
-                                <Button disabled={!name || !email || !subject || !message ? true : false} variant="contained" endIcon={<Send />} >
+                                <Button onClick={() => sendemail()} disabled={!name || !email || !subject || !message ? true : false} variant="contained" endIcon={<Send />} >
                                     SEND
                                 </Button>
                             </div>
-
-
                         </div>
 
                     </div>

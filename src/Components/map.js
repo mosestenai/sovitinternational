@@ -9,8 +9,6 @@ const Officemap = () => {
         lng: 36.78878215326024
     });
 
-
-
     const [zoomno, setzoomno] = useState(15);
     const GoogleMapsApiKey = "AIzaSyB4Tle4NUq0FQmy8pxMUWsMOOMwVNqt00M"
     const containerStyle = {

@@ -7,8 +7,9 @@
 
 /* about us page */
 .aboutustopdiv {
-    background-image: url("./../assets/icons/const1.png");
+    background-image: url("./../assets/icons/blend.png");
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .aboutusheightdiv {
@@ -141,7 +142,7 @@
 
 /* services page */
 .ourservicestopdiv {
-    background-image: url("./../assets/icons/const4.png");
+    background-image: url("./../assets/icons/const1.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
