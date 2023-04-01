@@ -42,11 +42,22 @@
     padding: 40px 0px;
 }
 
+.abouscontentdivcontact {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    padding: 40px 0px;
+}
+
 .abouscontentdivleft {
-    width: 30%;
+    width: 32%;
 }
 
 .abouscontentdivright {
+    width: 68%;
+}
+
+.abouscontentdivrightcontact {
     width: 70%;
 }
 
@@ -80,6 +91,11 @@
 
 .teamphoto {
     text-align: center;
+    height: 200px;
+}
+
+.teamphoto img {
+    height: 100%;
 }
 
 .teamname {
@@ -127,7 +143,7 @@
 
 .awardchilddiv img {
     border-radius: 10px;
-    height: 150;
+    height: 150px;
     width: 100%;
 }
 
@@ -200,7 +216,6 @@
 
 .whoweservewrap {
     width: 23%;
-
     margin: 1%;
 }
 
@@ -298,5 +313,284 @@
 
 .messagecontent {
     width: 100%;
-   
+}
+
+
+
+
+
+
+
+/* mobile view styling*/
+@media screen and (max-width: 780px) {
+
+    /* about us page */
+    .aboutustopdiv {
+        background-image: url("./../assets/icons/blend.png");
+        background-repeat: no-repeat;
+        width: 103%;
+        margin-left: -10px;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .aboutustext {
+        font-size: 35px;
+        font-weight: 800;
+        padding: 120px 20px 0px 20px;
+        border-bottom-right-radius: 100%;
+        border-top-left-radius: 20%;
+        color: white;
+        background-image: linear-gradient(to bottom, rgba(240, 161, 161, 0), rgb(61, 51, 51));
+        width: 30%;
+    }
+
+    .aboutusdesc {
+        color: var(--white);
+        font-weight: 500;
+        font-size: 15px;
+        width: 80%;
+        padding: 10px 0px 0px 20px;
+    }
+
+    .abouscontentdiv {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        padding: 40px 0px;
+    }
+
+    .abouscontentdivcontact {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 40px 0px;
+    }
+
+    .abouscontentdivleft {
+        width: 40%;
+    }
+
+    .abouscontentdivright {
+        width: 68%;
+        font-size: 13px;
+    }
+
+    .abouscontentdivrightcontact {
+        width: 100%;
+    }
+
+    .aboutuslogoleft img {
+        display: none;
+    }
+
+    .whoweare {
+        font-weight: 800;
+        font-size: 50px;
+        text-shadow: 2px 2px #948b8b;
+        text-decoration: overline;
+    }
+
+    .teammemberswrap {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .teammemberchild {
+        width: 48%;
+        margin: 1%;
+        padding: 10px 0px;
+        box-shadow: 1px 2px 2px 3px #c7c6c6;
+    }
+
+    .teamphoto {
+        text-align: center;
+        height: 150px;
+    }
+
+    .teamphoto img {
+        height: 100%;
+    }
+
+    .awardswrap {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        flex-wrap: wrap;
+    }
+
+    .awardchilddiv {
+        width: 48%;
+        margin: 1%
+    }
+
+    .awardchilddiv img {
+        border-radius: 10px;
+        height: 150px;
+        width: 100%;
+    }
+
+    .awardchilddiv div {
+        margin: 10px 0px;
+        font-weight: 600;
+    }
+
+
+
+    /* services page */
+    .ourservicestopdiv {
+        background-image: url("./../assets/icons/const1.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .whatallwedowrap {
+        box-shadow: 1px 2px 6px #c7c6c6;
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 100%;
+        margin: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+    .whatwedowrap {
+        width: 98%;
+        margin: 2% 1%;
+    }
+
+    .whatwedoimage {
+        height: 160px;
+        width: 100%;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    .whatwedosubtextwrap {
+        display: flex;
+        color: var(--primarycolor);
+    }
+
+    .whatwedosubtext {
+        margin-left: 5px;
+        line-height: 20px;
+        font-size: 12px;
+    }
+
+    .whatallwedowrap {
+        box-shadow: 1px 2px 6px #c7c6c6;
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 90%;
+        margin: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+    .purposetitle {
+        font-weight: 700;
+    }
+
+
+
+
+    /* clients page */
+    .partnerimage {
+        width: 60%;
+    }
+
+    .whoweservewrap {
+        width: 98%;
+        margin: 1%;
+    }
+
+
+
+
+    /* safety page */
+    .safetymiddiv {
+        width: 80%;
+        margin: auto;
+    }
+
+    .standardsdiv {
+        padding: 40px 0px;
+    }
+
+    .betterworldtitle {
+        font-weight: 700;
+        font-size: 25px;
+        color: var(--secondarycolor);
+        margin: 10px 0px;
+    }
+
+    .safetywrap {
+        display: flex;
+        margin: 40px 0px;
+        flex-wrap: wrap;
+    }
+
+    .safetyleftdiv {
+        display: flex;
+        width: 100%;
+        margin: 1%;
+    }
+
+    .safetyleftdiv img {
+        height: 50px;
+        width: 20%;
+    }
+
+    .safetyworddiv {
+        margin: 0px 15px;
+    }
+
+    .safetyimageright {
+        width: 48%;
+        display: none;
+        margin: 1%;
+    }
+
+    .safetyimageright img {
+        width: 100%;
+    }
+
+    .safetychildtitle {
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--secondarycolor);
+    }
+
+    .safetydesc {
+        line-height: 15px;
+        font-size: 12px;
+        letter-spacing: 0px;
+    }
+
+
+    /* contact us page */
+    .contactusform {
+        box-shadow: 1px 1px 2px 2px #c7c6c6;
+        padding: 10px;
+    }
+
+    .basictextinputwrap {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: auto;
+    }
+
+    .basictextinput {
+        width: 48%;
+    }
+
+
 }

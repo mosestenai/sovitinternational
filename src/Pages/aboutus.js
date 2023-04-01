@@ -73,9 +73,9 @@ const Aboutus = () => {
             }
         }}>
             {loading && <Zoomicon />}
+            <Header scrolldown={isScrollingDown} scrollPosition={scrollPosition} />
             <div className={styles.homebody} id="home">
                 <div className="aboutustopdiv">
-                    <Header scrolldown={isScrollingDown} scrollPosition={scrollPosition} />
                     <div className="aboutusheightdiv">
                         <div className="aboutustext">
                             ABOUT US<br />
@@ -162,7 +162,7 @@ const Aboutus = () => {
                         return (
                             <div className="teammemberchild" key={key}>
                                 <div className="teamphoto">
-                                    <FaUsers size={150} />
+                                    <img src={require("./../assets/icons/user.png")} />
                                 </div>
                                 <div className="teamname">{val.name}</div>
                                 <div className="teamtitle">{val.position}</div>

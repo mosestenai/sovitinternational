@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { GoogleMap, LoadScript, Marker, DirectionsRenderer, DirectionsService } from '@react-google-maps/api';
+import { isMobile } from 'react-device-detect';
 
 
 const Officemap = () => {
@@ -10,11 +11,11 @@ const Officemap = () => {
     });
 
     const [zoomno, setzoomno] = useState(15);
-
+    const GoogleMapsApiKey = "AIzaSyB4Tle4NUq0FQmy8pxMUWsMOOMwVNqt00M"
     const containerStyle = {
         width: '90%',
         margin: "0 auto",
-        height: '600px'
+        height: isMobile ? '300px' : '600px'
     };
 
 

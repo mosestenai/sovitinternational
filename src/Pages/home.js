@@ -87,15 +87,15 @@ const Homepage = () => {
             }
         }}>
             {loading && <Zoomicon />}
+            <Header scrolldown={isScrollingDown} scrollPosition={scrollPosition} />
             <div className={styles.homebody} id="home">
                 <div className={styles.firstdiv}>
-                    {/* <Localheader scrolldown={isScrollingDown} scrollPosition={scrollPosition} /> */}
-                    <Header scrolldown={isScrollingDown} scrollPosition={scrollPosition} />
+
                     <div className={styles.nomoretext}>SOVIT</div>
                     <div className={styles.nomoretext2}>FIRST CHOICE</div>
                     <div className={styles.nomoretextbelow}>Contruction partner</div>
                     <div className={styles.nomoretextbelow2}>
-                        <button className={styles.viewworkbutton}>View our work</button>
+                        <button className={styles.viewworkbutton} style={{zIndex:10}} onClick={() => navigate("/ourservices")}>View our work</button>
                     </div>
 
                     <div style={{ width: "100%", justifyContent: "center", alignItems: "center", display: "flex", position: "absolute" }}>
@@ -109,14 +109,14 @@ const Homepage = () => {
                 </div>
                 <div className={styles.image}></div>
                 <div ref={ref}>
-                    {isVisible && <img src={require("./../assets/home/image5.jpg")} className={scrollup && !isVisible4 ? styles.rightfixedimageout : styles.rightfixedimage} />}
+                    <img src={require("./../assets/home/image5.jpg")} className={scrollup && !isVisible4 ? styles.rightfixedimageout : styles.rightfixedimage} />
                 </div>
                 <div ref={ref4}>
-                    {isVisible4 && <img src={require("./../assets/home/imageone.jpg")} className={scrollup && !isVisible3 ? styles.rightfixedimage2out : styles.rightfixedimage2} />}
+                    <img src={require("./../assets/home/imageone.jpg")} className={scrollup && !isVisible3 ? styles.rightfixedimage2out : styles.rightfixedimage2} />
                 </div>
                 <div className={styles.middledivwrap} id="aboutus">
                     <div ref={ref3}>
-                        {isVisible3 && <div className={scrollup ? styles.iplugdescriptionleftout : styles.iplugdescriptionleft}>
+                        <div className={styles.iplugdescriptionleft}>
                             Sovit International Limited was <br />
                             formed in the year 2015 with the<br />
                             focus to intelligent quality <br />
@@ -129,7 +129,7 @@ const Homepage = () => {
                             <div className={styles.discoverbutton} onClick={() => navigate("/aboutus")}>
                                 DISCOVER MORE ABOUT US
                             </div>
-                        </div>}
+                        </div>
                     </div>
                 </div>
 
@@ -429,7 +429,7 @@ const Homepage = () => {
                 <div className={styles.ourpartnersdiv} id="contactus">
                     <div className={styles.myswiper}>
                         <Swiper
-                            slidesPerView={isMobile ? 3 : isTablet ? 4 : isDesktop && 5}
+                            slidesPerView={isMobile ? 2 : isTablet ? 4 : isDesktop && 5}
                             spaceBetween={20}
                             slidesPerGroup={3}
                             loop={false}
@@ -497,23 +497,7 @@ const Homepage = () => {
                             <FaPhoneAlt style={{ marginTop: 3, marginRight: 5 }} /> +254 717 254 347
                         </div>
                     </div>
-                    <div className={styles.bottomabout}>
-                        <div className={styles.officelocation}>
-                            Nakuru
-                        </div>
-                        <br />
-                        <div>
-                            <FaMapMarkerAlt /> Kindaruma Apartments, off Kindaruma road.<br /> Nairobi<br />
-                            <br />
-                            P.O BOX 1285-00502  NAIROBI<br />
-                        </div>
-                        <div style={{ display: "flex", marginTop: 5 }}>
-                            <FaEnvelope style={{ marginTop: 3, marginRight: 5 }} /> support@sovitinternational.co.ke
-                        </div>
-                        <div style={{ display: "flex", marginTop: 5 }}>
-                            <FaPhoneAlt style={{ marginTop: 3, marginRight: 5 }} /> +254 717 254 347
-                        </div>
-                    </div>
+
                 </div>
                 <Sitefooter ref={ref2} bottomref={bottomref} scrollup={scrollup} />
 

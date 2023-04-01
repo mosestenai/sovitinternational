@@ -27,7 +27,7 @@ const Header = ({ scrolldown, scrollPosition }) => {
             <div onClick={() => navigate("/contact-us")} className={scrollPosition >= 5 ? styles.getappbutton : styles.getappbuttondown}>REQUEST A QUOTE</div>
             <div className={shownavbar ? styles.navbarmovein : styles.navbar}>
                 <div onClick={() => setshownavbar(!shownavbar)} style={{
-                    backgroundColor: shownavbar ? "#430f0f" : "black",
+                    backgroundColor: shownavbar ? "black" : "black",
                     height: 40,
                     display: "flex",
                     justifyContent: "center",

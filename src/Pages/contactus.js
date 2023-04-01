@@ -111,15 +111,14 @@ const Contactus = () => {
                         <div className="aboutustext">
                             Contact us<br />
                         </div>
-                        <div className="aboutusdesc">We will catch you as early as we receive the message</div>
+                        <div className="aboutusdesc">We will contact you as early as we receive the message</div>
                     </div>
                 </div>
-                <div className="abouscontentdiv">
+                <div className="abouscontentdivcontact">
                     <div className="abouscontentdivleft">
                         <div className="whoweare">Request a Quote</div>
-
                     </div>
-                    <div className="abouscontentdivright">
+                    <div className="abouscontentdivrightcontact">
                         {error?.length > 0 &&
                             <Alert severity="error">
                                 <AlertTitle>Error</AlertTitle>

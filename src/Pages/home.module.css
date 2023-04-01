@@ -13,6 +13,10 @@
 .homebody {
     font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
     overflow-x: hidden;
+    
+}
+.homebody::-webkit-scrollbar{
+    display: none;
 }
 
 .viewworkbutton {
@@ -999,10 +1003,7 @@ h1 {
     display: flex;
 }
 
-.bottomhomediv {
-    background-image: url("./../assets/home/imageone.jpg");
-    background-repeat: no-repeat;
-}
+.bottomhomediv {}
 
 .scrollbottomomediv {
     width: 100%;
@@ -1116,10 +1117,6 @@ h1 {
 
 
 
-.almostbottomdiv {
-    background-color: white;
-    padding-top: 20px;
-}
 
 .bottomdivfooter {
     background-color: black;
@@ -1306,8 +1303,23 @@ h1 {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /* mobile view styling*/
 @media screen and (max-width: 780px) {
+    .footercontentone img{
+        height: 50px;
+        margin: 15px 0px;
+    }
     .headerimageparent {
         width: 50%;
     }
@@ -1325,7 +1337,7 @@ h1 {
         display: flex;
         right: -80%;
         width: 100%;
-        top: 3px;
+        top: 20px;
         animation: moveoutnavbar 1s ease
     }
 
@@ -1334,7 +1346,7 @@ h1 {
         position: absolute;
         display: flex;
         width: 100%;
-        top: 3px;
+        top: 20px;
         animation: moveinnavbar 1s ease;
     }
 
@@ -1345,7 +1357,7 @@ h1 {
 
     .navbarcontent {
         width: 100%;
-        background-color: #430f0f;
+        background-color: #000;
         height: 800px;
     }
 
@@ -1401,9 +1413,11 @@ h1 {
         font-weight: 500;
         position: relative;
         right: 0px;
-        width: 40%;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
         margin: auto;
-        top: 130px;
+        top: 350px;
 
     }
 
@@ -1413,15 +1427,19 @@ h1 {
         font-weight: 400;
         position: relative;
         right: 0px;
-        width: 70%;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
         margin: auto;
-        top: 140px;
+        top: 360px;
 
     }
 
     .homephone {
-        padding-top: 300px;
-        padding-left: 5%;
+        padding-top: 0px;
+        width: 80%;
+        padding-left: 10%;
+        padding-bottom: 250px;
     }
 
     .homephoneslider {
@@ -1437,9 +1455,11 @@ h1 {
         position: relative;
         align-self: center;
         right: 0px;
-        width: 80%;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
         margin: auto;
-        top: 150px;
+        top: 370px;
 
     }
 
@@ -1449,9 +1469,11 @@ h1 {
         font-weight: 500;
         position: relative;
         right: 0px;
-        width: 40%;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
         margin: auto;
-        top: 155px;
+        top: 380px;
 
     }
 
@@ -1747,5 +1769,265 @@ h1 {
         z-index: 5;
     }
 
+    .containerwithshadowflex {
+        box-shadow: 1px 2px 6px #c7c6c6;
+        padding-left: 2%;
+        padding-right: 2%;
+        width: 95%;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .qualitydiv {
+        box-shadow: 1px 2px 6px #c7c6c6;
+        padding: 10px 30px;
+        margin: 0% 1%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        width: 90%;
+    }
+
+    .homeaboutyear {
+        width: 80%;
+        margin: 0% 1%;
+    }
+
+    .homeabouttextdiv {
+        width: 90%;
+        margin: 10% 1%;
+    }
+
+    .whatwedowrap {
+        height: 170px;
+        width: 48%;
+        margin: 0% 1%;
+    }
+
+    .whatwedoimage {
+        height: 60%;
+        width: 100%;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    .middivshadownoflex {
+        box-shadow: 1px 2px 6px #c7c6c6;
+        padding-left: 2%;
+        padding-right: 2%;
+        width: 96%;
+        margin: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .currentworkimage {
+        height: 130px;
+        width: 48%;
+        margin: 1% 1%;
+        border-radius: 10px;
+    }
+
+    .counterdivwrap {
+        padding-left: 2%;
+        padding-right: 2%;
+        width: 96%;
+        margin: auto;
+        padding-top: 20px;
+        padding-bottom: 50px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .projectprevdiv {
+        width: 90%;
+        margin: 1%;
+    }
+
+    .projectprevdivimage {
+        width: 68%;
+        margin: 1%;
+    }
+
+    .wrapcounterwhole {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .wrapcounter {
+        display: flex;
+        padding-top: 20px;
+        flex-wrap: wrap;
+        width: 95%;
+        margin: auto;
+    }
+
+    .projectscounter {
+        display: flex;
+        width: 48%;
+        margin: 10px 0px;
+        position: relative;
+    }
+
+    .projectscounterfirst {
+        background-color: silver;
+        height: 80px;
+        width: 80%;
+    }
+
+    .employeescounterfirst {
+        background-color: rgb(201, 206, 252);
+        height: 80px;
+        width: 80%;
+    }
+
+    .awardscounterfirst {
+        background-color: silver;
+        height: 80px;
+        width: 80%;
+    }
+
+    .clientscounterfirst {
+        background-color: rgb(204, 146, 146);
+        height: 80px;
+        width: 80%;
+    }
+
+    .projectscountersecond {
+        background-color: white;
+        height: 80px;
+        width: 80%;
+    }
+
+    .projectscountertext {
+        position: absolute;
+        align-self: center;
+        padding: 0px 10px;
+    }
+
+    .projectscountertextnumber {
+        font-weight: 900;
+        font-size: 30px;
+    }
+
+    .projectscountertextname {
+        font-weight: 800;
+        font-size: 20px;
+    }
+
+    .testimonialdiv {
+        box-shadow: 1px 2px 6px #c7c6c6;
+    }
+
+    .testimonialchild {
+        height: 250px;
+    }
+
+    .testimonialreview {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .ourpartnersdiv {
+        margin-top: 20px;
+        margin-bottom: 100px;
+    }
+
+
+    .contactusdiv {
+        margin-top: 60px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .contactusdiv img {
+        display: none;
+    }
+
+    .bottomabout {
+        width: 80%;
+        margin: 0% 2%;
+    }
+
+    .officelocation {
+        font-weight: 900;
+    }
+
+    /*footer */
+    .bottomdivfooter {
+        background-color: black;
+        width: 102%;
+        left: -5px;
+        position: absolute;
+        padding: 50px 0px 10px 0px;
+        animation: buttomfooterbottomtotop 3s ease;
+        overflow-x: hidden;
+    }
+
+    .headerdiv {
+        font-family: 'Muli';
+        z-index: 6;
+        width: 100%;
+        margin: -10px 0px 0px -10px;
+        background-image: linear-gradient(to top, rgba(221, 196, 196, 0), rgb(44, 41, 41));
+        font-size: 13px;
+        padding: 30px 5px;
+        font-weight: 400;
+        position: fixed;
+        animation: headerin 1s ease;
+        letter-spacing: 0.3vh;
+        display: flex;
+    }
+
+    @keyframes headerin {
+    from {
+        padding: 5px;
+        background-image: linear-gradient(to top, rgba(214, 209, 209, 0), rgb(20, 19, 19)), linear-gradient(to bottom, rgba(214, 209, 209, 0), rgb(20, 20, 20));
+    }
+
+    to {
+        padding: 30px 5px;
+        background-image: linear-gradient(to top, rgba(214, 209, 209, 0), rgb(77, 73, 73));
+    }
+}
+
+    .headerdivscrolldown {
+        font-family: 'Muli';
+        z-index: 6;
+        width: 100%;
+        font-size: 13px;
+        padding: 20px 10px;
+        font-weight: 400;
+        margin: -10px 0px 0px -10px;
+        position: fixed;
+        background-color: black;
+        background-image: linear-gradient(to top, rgba(214, 209, 209, 0), rgb(20, 19, 19)), linear-gradient(to bottom, rgba(214, 209, 209, 0), rgb(20, 20, 20));
+        letter-spacing: 0.3vh;
+        animation: headerout 1s ease;
+        display: flex;
+    }
+
+    @keyframes headerout {
+        from {
+            padding: 30px 5px;
+            background-color: silver;
+            background-image: linear-gradient(to top, rgba(214, 209, 209, 0), rgb(77, 73, 73));
+        }
+    
+        to {
+            padding: 20px 10px;
+            background-color: black;
+            background-image: linear-gradient(to top, rgba(214, 209, 209, 0), rgb(20, 19, 19)), linear-gradient(to bottom, rgba(214, 209, 209, 0), rgb(20, 20, 20));
+        }
+    }
 
 }
